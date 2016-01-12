@@ -1,4 +1,5 @@
 <?php
+	header("Content-Type: text/html;charset=utf-8");
 	require_once('connection.php');
 	require_once('controllers/GlobalController.php');
 

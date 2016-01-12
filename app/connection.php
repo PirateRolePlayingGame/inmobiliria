@@ -15,7 +15,8 @@
 		public static function getInstance(){
 			if(!isset(self::$instance)){
 				$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-				self::$instance = new PDO('mysql:host=localhost;dbname=dota_mvc', 'root', '', $pdo_options);
+				self::$instance = new PDO('mysql:host=localhost;dbname=inmobiliaria', 'root', '', $pdo_options);
+				self::$instance->query("SET NAMES 'utf8'");
 			}
 			return(self::$instance);
 		}
