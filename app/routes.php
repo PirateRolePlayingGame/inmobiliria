@@ -10,6 +10,14 @@
 				require_once('/models/heroes.php');
 				$c = new HeroesController();
 				break;
+			case 'userTest':
+				require_once('/models/usuario.php');
+				$c = new UserTestController();
+				break;
+			case 'auditoriaTest':
+				require_once('/models/auditoria.php');
+				$c = new AuditoriaTestController();
+				break;
 		}
 
 		$c->{$a}();
@@ -17,7 +25,8 @@
 
 	//LLenar con controladores y acciones validas
 	$controllers = array('main' 	=> ['main', 'error'],
-						 'admin' 	=> ['showAll', 'show']
+						 'admin' 	=> ['showAll', 'show'],
+						 'userTest' 	=> ['test']
 						 );
 
 	//Lenguajes validos

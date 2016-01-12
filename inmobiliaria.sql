@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-01-2016 a las 20:26:55
+-- Tiempo de generación: 12-01-2016 a las 07:23:51
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -188,8 +188,15 @@ CREATE TABLE `usuario` (
   `contraseña` varchar(25) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `telefono` varchar(15) NOT NULL,
-  `correo` varchar(25) NOT NULL
+  `correo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `idEstatus`, `idTipoUsuario`, `usuario`, `contraseña`, `nombre`, `telefono`, `correo`) VALUES
+(1, 1, 1, 'PenguinAdmin', '1234', 'Pinguino Rey', '04124503477', 'victormtortolero@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -330,7 +337,7 @@ ALTER TABLE `ubicacion`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Restricciones para tablas volcadas
 --
@@ -339,17 +346,17 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `auditoria`
 --
 ALTER TABLE `auditoria`
-  ADD CONSTRAINT `auditoria_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`),
-  ADD CONSTRAINT `auditoria_ibfk_1` FOREIGN KEY (`idInmueble`) REFERENCES `inmueble` (`idInmueble`);
+  ADD CONSTRAINT `auditoria_ibfk_1` FOREIGN KEY (`idInmueble`) REFERENCES `inmueble` (`idInmueble`),
+  ADD CONSTRAINT `auditoria_ibfk_2` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
 
 --
 -- Filtros para la tabla `inmueble`
 --
 ALTER TABLE `inmueble`
-  ADD CONSTRAINT `inmueble_ibfk_4` FOREIGN KEY (`idUbicacion`) REFERENCES `ubicacion` (`idUbicacion`),
   ADD CONSTRAINT `inmueble_ibfk_1` FOREIGN KEY (`idTipoInmueble`) REFERENCES `tipoinmueble` (`idTipoInmueble`),
   ADD CONSTRAINT `inmueble_ibfk_2` FOREIGN KEY (`idEstatus`) REFERENCES `estatus` (`idEstatus`),
-  ADD CONSTRAINT `inmueble_ibfk_3` FOREIGN KEY (`idTransaccion`) REFERENCES `transaccion` (`idTransaccion`);
+  ADD CONSTRAINT `inmueble_ibfk_3` FOREIGN KEY (`idTransaccion`) REFERENCES `transaccion` (`idTransaccion`),
+  ADD CONSTRAINT `inmueble_ibfk_4` FOREIGN KEY (`idUbicacion`) REFERENCES `ubicacion` (`idUbicacion`);
 
 --
 -- Filtros para la tabla `rinmueblefoto`
@@ -361,8 +368,8 @@ ALTER TABLE `rinmueblefoto`
 -- Filtros para la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
-  ADD CONSTRAINT `ubicacion_ibfk_2` FOREIGN KEY (`idMunicipio`) REFERENCES `municipio` (`idMunicipio`),
-  ADD CONSTRAINT `ubicacion_ibfk_1` FOREIGN KEY (`idEstado`) REFERENCES `estado` (`idEstado`);
+  ADD CONSTRAINT `ubicacion_ibfk_1` FOREIGN KEY (`idEstado`) REFERENCES `estado` (`idEstado`),
+  ADD CONSTRAINT `ubicacion_ibfk_2` FOREIGN KEY (`idMunicipio`) REFERENCES `municipio` (`idMunicipio`);
 
 --
 -- Filtros para la tabla `usuario`
