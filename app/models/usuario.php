@@ -28,7 +28,7 @@ class Usuario{
 
 		$req = $db->query('SELECT usuario.idUsuario as id, usuario.nombre as nombre, usuario.usuario as user,
 							usuario.contraseña as contraseña, usuario.correo as correo, usuario.telefono as telefono,
-							estatus.estatus as estatus, tipoUsuario.tipoUsuario as tipoUsuario
+							estatus.estatus as estatus, tipoUsuario.tipoUsuario as tipoUsuario,
 							FROM usuario
 							INNER JOIN estatus on usuario.idEstatus = estatus.idEstatus
 							INNER JOIN tipoUsuario on usuario.idTipoUsuario = tipoUsuario.idTipoUsuario;');

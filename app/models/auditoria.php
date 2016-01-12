@@ -1,29 +1,35 @@
 <?php
 class auditoria
 {
+	public $id;
+	public $idUsuario;
 	public $actividad;
 	public $usuario;
 	public $fecha;
 	public $codigo;
 
 
-	public function __construct($act, $us, $fec, $cod)
+	public function __construct($act, $us, $fec, $cod, $idu, $ida)
 	{
 		$this->actividad = $act;
 		$this->usuario = $us;
 		$this->fecha = $fec;
 		$this->codigo = $cod; 
+		$this->id = $ida;
+		$this->idUsuario = $idu;
 	}
 
 	public static function obtAuditorias()
 	{
 		$V = [];
 		$db = Db::getInstance();
-		$req = $db->query('SELECT * from auditoria');
+		$req = $db->query('SELECT idAuditoria as Id, auditoria.idUsuario as idU, usuario.nombre as nombre, inmueble.codigo as codigo, actividad, fecha from auditoria 
+			INNER JOIN inmueble on auditoria.idInmueble = inmueble.idInmueble 
+			INNER JOIN usuario on auditoria.idUsuario = usuario.idUsuario;');
 
 		foreach($req->fetchAll() as $a)
 		{
-			$V[] = new auditoria($a['actividad'], $a['idUsuario'], $a['fecha'], $a['idInmueble']);
+			$V[] = new auditoria($a['actividad'], $a['nombre'], $a['fecha'], $a['codigo'], $a['idUsuario'], $a['Id']);
 		}
 		return $V;
 	}
