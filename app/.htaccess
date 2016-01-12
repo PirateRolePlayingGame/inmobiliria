@@ -6,8 +6,8 @@ RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
  
 # Reescribir la URL solicitada por el usuario
-#RewriteRule ^(\d{2,3})/(\w+)/(\w+)/?$ index.php?lang=$1&controller=$2&action=$3
-#RewriteRule ^(\d{2,3})/(\w+)/(\w+)/(\d+)/?$ index.php?lang=$1&controller=$2&action=$3&param1=$4
+#RewriteRule ^(\w{2,3})/(\w+)/(\w+)/?$ index.php?lang=$1&controller=$2&action=$3
+#RewriteRule ^(\w{2,3})/(\w+)/(\w+)/(\d+)/?$ index.php?lang=$1&controller=$2&action=$3&param1=$4
 RewriteRule ^(\w+)/(\w+)/?$ index.php?controller=$1&action=$2
 RewriteRule ^(\w+)/(\w+)/(\d+)/?$ index.php?controller=$1&action=$2&id=$3
 </IfModule>
