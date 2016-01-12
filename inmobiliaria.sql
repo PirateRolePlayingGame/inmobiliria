@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-01-2016 a las 07:23:51
+-- Tiempo de generación: 12-01-2016 a las 08:05:35
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -34,6 +34,13 @@ CREATE TABLE `auditoria` (
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `auditoria`
+--
+
+INSERT INTO `auditoria` (`idAuditoria`, `idUsuario`, `idInmueble`, `actividad`, `fecha`) VALUES
+(1, 1, 1, 'Me cague en la puerta de la casa', '2016-01-12');
+
 -- --------------------------------------------------------
 
 --
@@ -44,6 +51,13 @@ CREATE TABLE `estado` (
   `idEstado` int(11) NOT NULL,
   `estado` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`idEstado`, `estado`) VALUES
+(1, 'Carabobo');
 
 -- --------------------------------------------------------
 
@@ -77,7 +91,6 @@ CREATE TABLE `inmueble` (
   `idTransaccion` int(11) NOT NULL,
   `idUbicacion` int(11) NOT NULL,
   `nombre` tinytext NOT NULL,
-  `direccion` tinytext NOT NULL,
   `nBaños` int(11) NOT NULL,
   `nHabitaciones` int(11) NOT NULL,
   `metros` int(11) NOT NULL,
@@ -87,6 +100,13 @@ CREATE TABLE `inmueble` (
   `codigo` varchar(50) NOT NULL,
   `descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `inmueble`
+--
+
+INSERT INTO `inmueble` (`idInmueble`, `idEstatus`, `idTipoInmueble`, `idTransaccion`, `idUbicacion`, `nombre`, `nBaños`, `nHabitaciones`, `metros`, `precio`, `nEstacionamiento`, `tlfDueño`, `codigo`, `descripcion`) VALUES
+(1, 1, 1, 1, 1, 'Casa depinga', 6, 20, 40000, 5000000, 6, 1337, 'C1', 'CASA ARRECHISIMA COMPRAME');
 
 -- --------------------------------------------------------
 
@@ -98,6 +118,13 @@ CREATE TABLE `municipio` (
   `idMunicipio` int(11) NOT NULL,
   `municipio` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `municipio`
+--
+
+INSERT INTO `municipio` (`idMunicipio`, `municipio`) VALUES
+(1, 'Libertador');
 
 -- --------------------------------------------------------
 
@@ -161,6 +188,13 @@ CREATE TABLE `transaccion` (
   `transaccion` varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `transaccion`
+--
+
+INSERT INTO `transaccion` (`idTransaccion`, `transaccion`) VALUES
+(1, 'Nuevo');
+
 -- --------------------------------------------------------
 
 --
@@ -173,6 +207,13 @@ CREATE TABLE `ubicacion` (
   `idMunicipio` int(11) NOT NULL,
   `direccion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `ubicacion`
+--
+
+INSERT INTO `ubicacion` (`idUbicacion`, `idEstado`, `idMunicipio`, `direccion`) VALUES
+(1, 1, 1, 'El Molino');
 
 -- --------------------------------------------------------
 
@@ -287,12 +328,12 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `auditoria`
 --
 ALTER TABLE `auditoria`
-  MODIFY `idAuditoria` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAuditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `idEstado` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idEstado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `estatus`
 --
@@ -302,12 +343,12 @@ ALTER TABLE `estatus`
 -- AUTO_INCREMENT de la tabla `inmueble`
 --
 ALTER TABLE `inmueble`
-  MODIFY `idInmueble` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idInmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `municipio`
 --
 ALTER TABLE `municipio`
-  MODIFY `idMunicipio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idMunicipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `rinmueblefoto`
 --
@@ -327,12 +368,12 @@ ALTER TABLE `tipousuario`
 -- AUTO_INCREMENT de la tabla `transaccion`
 --
 ALTER TABLE `transaccion`
-  MODIFY `idTransaccion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idTransaccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `ubicacion`
 --
 ALTER TABLE `ubicacion`
-  MODIFY `idUbicacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUbicacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --

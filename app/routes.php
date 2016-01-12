@@ -26,7 +26,8 @@
 	//LLenar con controladores y acciones validas
 	$controllers = array('main' 	=> ['main', 'error'],
 						 'admin' 	=> ['showAll', 'show'],
-						 'userTest' 	=> ['test']
+						 'userTest' 	=> ['test'],
+						 'auditoriaTest' 	=> ['test']
 						 );
 
 	//Lenguajes validos

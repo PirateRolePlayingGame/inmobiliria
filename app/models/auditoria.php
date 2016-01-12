@@ -23,7 +23,7 @@ class auditoria
 
 		foreach($req->fetchAll() as $a)
 		{
-			$V[] = new auditoria($a['actividad'], $a['usuario'], $a['fecha'], $a['codigo']);
+			$V[] = new auditoria($a['actividad'], $a['idUsuario'], $a['fecha'], $a['idInmueble']);
 		}
 		return $V;
 	}
@@ -31,14 +31,14 @@ class auditoria
 	public static function agrAuditoria($idu, $idinm, $var)
 	{
 		$db = Db::getInstance();
-		$this->{$var}($idu, $idinm, $i = 0, $viejo = 0)    //cuidado
+		$this->{$var}($idu, $idinm, $i, $viejo);    //cuidado
 	}
 
 	public static function agrInmueble($idu, $idinm)
 	{
 		$db = Db::getInstance();
 		$fecha = date('Y/m/d');
-		$db->query('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values('$idu', '$idinm', "Agregó" '$fecha')');
+		$db->query('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values("$idu", "$idinm", "Agregó", "$fecha")');
 
 	}
 
@@ -46,9 +46,9 @@ class auditoria
 	{
 		$db = Db::getInstance();
 		$fecha = date('Y/m/d');
-		$inf = $db->query('SHOW COLUMNS from inmueble')
-		$inf->fetchAll();
-		$db->query('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values('$idu', '$idinm', "Modificó el '$i' de '$viejo'", '$fecha')');
+		$inf = $db->query('SHOW COLUMNS from inmueble');
+		$inf = $inf->fetchAll();
+		$db->query('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values("$idu", "$idinm", "Modificó el "$i" de "$viejo"", "$fecha")');
 		//Falta terminar de formatear.
 	}
 
@@ -56,7 +56,7 @@ class auditoria
 	{
 		$db = Db::getInstance();
 		$fecha = date('Y/m/d');
-		$db->query('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values('$idu', '$idinm', "Inhabilitó" '$fecha')');
+		$db->query('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values("$idu", "$idinm", "Inhabilitó", "$fecha")');
 
 	}
 
