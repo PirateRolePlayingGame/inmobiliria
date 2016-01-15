@@ -1,5 +1,5 @@
 <?php
-class auditoria
+class Auditoria
 {
 
 	public $id;
@@ -30,7 +30,7 @@ class auditoria
 
 		foreach($req->fetchAll() as $a)
 		{
-			$V[] = new auditoria($a['actividad'], $a['nombre'], $a['fecha'], $a['codigo'], $a['idU'], $a['Id']);
+			$V[] = new Auditoria($a['actividad'], $a['nombre'], $a['fecha'], $a['codigo'], $a['idU'], $a['Id']);
 		}
 		return $V;
 	}
@@ -47,7 +47,6 @@ class auditoria
 		$fecha = date('Y/m/d');
 		$req = $db->prepare('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values(:idu, :idinm, "Agregó", :fec)');
 		$req->execute(array(':idu' => $idu, ':idinm' => $idinm, ':fec' => $fecha));
-
 	}
 
 	public static function modInmueble($idu, $idinm, $i, $viejo, $nuevo) //Al modificar, se debe buscar el # relacionado con la columna que se modifico. Ese es $i.
@@ -64,7 +63,6 @@ class auditoria
 		$fecha = date('Y/m/d');
 		$req = $db->prepare('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values(:idu, :idinm, "Inhabilitó el inmueble", :fec)');
 		$req->execute(array(':idu' => $idu, ':idinm' => $idinm, ':fec' => $fecha));
-
 	}
 
 

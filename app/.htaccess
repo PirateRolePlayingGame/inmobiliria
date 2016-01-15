@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
 # Activar RewriteEngine
 RewriteEngine on
-RewriteBase /Repos/GitHub/inmobiliaria/app/
+RewriteBase /Git/inmobiliaria/app/
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
@@ -12,6 +12,7 @@ RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
 RewriteRule ^(\w{2,3})/(\w+)/(\w+)/?$ index.php?lang=$1&controller=$2&action=$3
 RewriteRule ^(\w+)/(\w+)/?$ index.php?controller=$1&action=$2
 #RewriteRule ^(\w{2,3})/(\w+)/(\w+)/(\d+)/?$ index.php?lang=$1&controller=$2&action=$3&param1=$4
+
 </IfModule>
 
 # To prevent dir access
@@ -19,7 +20,7 @@ Options -Indexes
 Options +FollowSymLinks
 
 #Error 404 Redirect
-ErrorDocument 404 /Repos/GitHub/inmobiliaria/app/index.php?controller=error&action=_404
+ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
 
 # To prevent file access
 #<Files "*.js">
