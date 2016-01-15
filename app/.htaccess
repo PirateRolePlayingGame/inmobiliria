@@ -12,7 +12,6 @@ RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
 RewriteRule ^(\w{2,3})/(\w+)/(\w+)/?$ index.php?lang=$1&controller=$2&action=$3
 RewriteRule ^(\w+)/(\w+)/?$ index.php?controller=$1&action=$2
 #RewriteRule ^(\w{2,3})/(\w+)/(\w+)/(\d+)/?$ index.php?lang=$1&controller=$2&action=$3&param1=$4
-
 </IfModule>
 
 # To prevent dir access
