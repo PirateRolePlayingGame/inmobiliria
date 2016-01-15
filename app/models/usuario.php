@@ -9,10 +9,11 @@ class Usuario{
 	public $nombre;
 	public $correo;
 	public $telefono;
-	public $fecha;
+	public $fechaEntrada;
+	public $fechaSalida;
 
 	
-	public function __construct($id, $estatus, $tipoUsuario, $userName, $contraseña, $nombre, $correo, $telefono, $fecha){
+	public function __construct($id, $estatus, $tipoUsuario, $userName, $contraseña, $nombre, $correo, $telefono, $fechaEntrada, $fechaSalida){
 		$this->id = $id;
 		$this->estatus = $estatus;
 		$this->tipoUsuario = $tipoUsuario;
@@ -21,6 +22,8 @@ class Usuario{
 		$this->nombre = $nombre;
 		$this->correo = $correo;
 		$this->telefono = $telefono;
+		$this->fechaEntrada = $fechaEntrada;
+		$this->fechaSalida = $fechaSalida;
 	}
 
 	
@@ -31,7 +34,7 @@ class Usuario{
 		$req = $db->prepare('SELECT usuario.idUsuario as id, usuario.nombre as nombre, usuario.usuario as user,
 								usuario.contraseña as contraseña, usuario.correo as correo, usuario.telefono as telefono,
 								estatus.estatus as estatus, tipoUsuario.tipoUsuario as tipoUsuario,
-								usuario.fechaEntrada as fechaEntrada
+								usuario.fechaEntrada as fechaEntrada, usuario.fechaSalida as fechaSalida
 								FROM usuario
 								INNER JOIN estatus on usuario.idEstatus = estatus.idEstatus
 								INNER JOIN tipoUsuario on usuario.idTipoUsuario = tipoUsuario.idTipoUsuario');
@@ -39,7 +42,8 @@ class Usuario{
 		foreach($req->fetchAll() as $usuario){
 			$arr[] = new Usuario($usuario['id'], $usuario['estatus'], $usuario['tipoUsuario'],
 									$usuario['user'], $usuario['contraseña'], $usuario['nombre'],
-									$usuario['correo'], $usuario['telefono'], $usuario['fechaEntrada']);
+									$usuario['correo'], $usuario['telefono'], $usuario['fechaEntrada'], 
+									$usuario['fechaSalida']);
 		}
 
 		return($arr);

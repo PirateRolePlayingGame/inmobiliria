@@ -1,7 +1,7 @@
 <IfModule mod_rewrite.c>
 # Activar RewriteEngine
 RewriteEngine on
-RewriteBase /Git/inmobiliaria/app/
+RewriteBase /Repos/GitHub/inmobiliaria/app/
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
@@ -19,7 +19,7 @@ Options -Indexes
 Options +FollowSymLinks
 
 #Error 404 Redirect
-ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
+ErrorDocument 404 /Repos/GitHub/inmobiliaria/app/index.php?controller=error&action=_404
 
 # To prevent file access
 #<Files "*.js">
