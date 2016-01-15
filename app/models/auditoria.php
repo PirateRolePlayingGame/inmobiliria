@@ -24,11 +24,9 @@ class auditoria
 	{
 		$V = [];
 		$db = Db::getInstance();
-		$req = $db->prepare('SELECT idAuditoria as Id, auditoria.idUsuario as idU, usuario.nombre as nombre, inmueble.codigo as codigo, actividad, fecha 
-			from auditoria 
-			INNER JOIN inmueble on auditoria.idInmueble = inmueble.idInmueble 
-			INNER JOIN usuario on auditoria.idUsuario = usuario.idUsuario;');
-		$req->execute();
+		$req = $db->query('SELECT idAuditoria as Id, auditoria.idUsuario as idU, usuario.nombre as nombre, inmueble.codigo as codigo, actividad, fecha from auditoria 
+							INNER JOIN inmueble on auditoria.idInmueble = inmueble.idInmueble 
+							INNER JOIN usuario on auditoria.idUsuario = usuario.idUsuario;');
 
 		foreach($req->fetchAll() as $a)
 		{
