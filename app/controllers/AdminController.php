@@ -1,16 +1,16 @@
-<?
-class Tabla 
+<?php
+class AdminController 
 {
-	public static function crearAuditoria()
+	public function auditorias()
 	{
 		$tabla = Auditoria::obtAuditorias();
-		require_once('/views/' . GVC::$lang . "/sistema/panel.php");
+		require_once('/views/' . GC::$lang . "/sistema/panel.php");
 	}
 
-	public static function crearUsuarios()
+	public function usuarios()
 	{
 		$tabla = Usuario::obtenerUsuarios();
-		require_once('/views/' . GVC::$lang . "/sistema/panel.php");
+		require_once('/views/' . GC::$lang . "/sistema/panel.php");
 	}
 }	 
 ?>

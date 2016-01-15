@@ -4,7 +4,7 @@ class Dibujo
 {
 	public static function aud($tabla)
 	{
-		echo "<table>";
+		echo "<table id='data-table'>";
 
 		echo "<thead>";
 		echo "<tr>";
@@ -32,7 +32,7 @@ class Dibujo
 
 	public static function usr($tabla)
 	{
-		echo "<table>";
+		echo "<table id='data-table'>";
 		echo "<thead>";
 		echo "<tr>";
 		echo "<td> Id </td>";

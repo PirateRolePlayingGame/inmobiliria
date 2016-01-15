@@ -1,14 +1,15 @@
 <?php
 	function call($c, $a){
 		require_once('/controllers/' . $c . 'Controller.php');
-
+		
 		switch($c){
 			case 'main':
 				$c = new MainController();
 				break;
 			case 'admin':
-				require_once('/models/heroes.php');
-				$c = new HeroesController();
+				require_once('/models/usuario.php');
+				require_once('/models/auditoria.php');
+				$c = new AdminController();
 				break;
 			case 'userTest':
 				require_once('/models/usuario.php');
@@ -28,7 +29,7 @@
 
 	//LLenar con controladores y acciones validas
 	$controllers = array('main' 	=> ['main', 'error'],
-						 'admin' 	=> ['showAll', 'show'],
+						 'admin' 	=> ['auditorias', 'usuarios'],
 						 'userTest' 	=> ['test'],
 						 'auditoriaTest' 	=> ['test'],
 						 'error' 	=> ['_404']
