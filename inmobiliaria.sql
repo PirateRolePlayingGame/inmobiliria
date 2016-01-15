@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-01-2016 a las 08:05:35
+-- Tiempo de generación: 15-01-2016 a las 04:39:08
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -229,15 +229,18 @@ CREATE TABLE `usuario` (
   `contraseña` varchar(25) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `telefono` varchar(15) NOT NULL,
-  `correo` varchar(50) NOT NULL
+  `correo` varchar(50) NOT NULL,
+  `fechaEntrada` date NOT NULL,
+  `fechaSalida` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `idEstatus`, `idTipoUsuario`, `usuario`, `contraseña`, `nombre`, `telefono`, `correo`) VALUES
-(1, 1, 1, 'PenguinAdmin', '1234', 'Pinguino Rey', '04124503477', 'victormtortolero@gmail.com');
+INSERT INTO `usuario` (`idUsuario`, `idEstatus`, `idTipoUsuario`, `usuario`, `contraseña`, `nombre`, `telefono`, `correo`, `fechaEntrada`, `fechaSalida`) VALUES
+(1, 1, 1, 'PenguinAdmin', '1234', 'Pinguino Rey', '04124503477', 'victormtortolero@gmail.com', '0000-00-00', '0000-00-00'),
+(2, 1, 2, 'elvis', '1234', 'Elvis Tek', '12346546', 'Elvis@gmail.com', '2016-01-14', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -328,7 +331,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `auditoria`
 --
 ALTER TABLE `auditoria`
-  MODIFY `idAuditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idAuditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `estado`
 --
@@ -378,7 +381,7 @@ ALTER TABLE `ubicacion`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
