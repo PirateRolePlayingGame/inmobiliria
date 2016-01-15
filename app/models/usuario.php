@@ -41,6 +41,38 @@ class Usuario{
 
 		return($arr);
 	}
+
+	
+	public static function agregarUsuario($userName, $contraseña, $nombre, $correo, $telefono){
+		$db = Db::getInstance();
+		
+		$req = $db->prepare('SELECT usuario.usuario as user FROM usuario WHERE usuario.usuario = :usr');
+		
+		if($req->execute(array(':usr' => $userName)) && $req->fetch() == null){
+			$req = $db->prepare('INSERT into usuario(idEstatus, idTipoUsuario, usuario, contraseña, nombre, telefono, correo)
+								values(:idStatus, :idTipoUsr, :usr, :cont, :nomb, :tlf, :corr)');
+
+			$req->execute(array(':idStatus' => 1, ':idTipoUsr' => 1,':usr' => $userName, ':cont' => $contraseña, 
+								':nomb' => $nombre, ':tlf' => $telefono, ':corr' => $correo));
+			return true;
+		}
+		
+		return false;
+	}
+
+	public static function validarLogin($userName, $contraseña){
+		$db = Db::getInstance();
+
+		$req = $db->prepare('SELECT usuario.contraseña as cont FROM usuario WHERE usuario = :usr');
+		if($req->execute(array(':usr' => $userName)) && ($row = $req->fetch()) != NULL){
+			if($row['cont'] == $contraseña)
+				return 'Login Exitoso';
+			else
+				return 'Contraseña Incorrecta';
+		}else{
+			return 'Usuario Inexistente';
+		}
+	}
 }
 
 ?>

@@ -18,6 +18,9 @@
 				require_once('/models/auditoria.php');
 				$c = new AuditoriaTestController();
 				break;
+			case 'error':
+				$c = new ErrorController();
+				break;
 		}
 
 		$c->{$a}();
@@ -27,24 +30,25 @@
 	$controllers = array('main' 	=> ['main', 'error'],
 						 'admin' 	=> ['showAll', 'show'],
 						 'userTest' 	=> ['test'],
-						 'auditoriaTest' 	=> ['test']
+						 'auditoriaTest' 	=> ['test'],
+						 'error' 	=> ['_404']
 						 );
 
 	//Lenguajes validos
 	$langs = array('es');
 
 	if(!in_array(GC::$lang, $langs)){
-		call('main', 'error');
+		call('error', '404');
 	}
 
 	if(array_key_exists(GC::$controller, $controllers)){
 		if(in_array(GC::$action, $controllers[GC::$controller])){
 			call(GC::$controller, GC::$action);
 		}else{
-			call('main', 'error');
+			call('error', '_404');
 		}
 	}else{
-		call('main', 'error');
+		call('error', '_404');
 	}
 
 ?>
