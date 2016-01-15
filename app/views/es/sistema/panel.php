@@ -14,7 +14,11 @@
 	<div class="container">
 		<br>
 		<br>
-		
+
+		<?php include("../../../controllers/AdminController.php"); ?>
+		<?php include("tableH.php"); ?>
+		<?php ?>
+
 	</div>
 
 
