@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<base href="/Repos/GitHub/Inmobiliaria/app/assets/">
+	<base href="/Git/inmobiliaria/app/">
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 <body>
+
+
 	<div class="container-fluid">
 		<div class="row">
 			<?php include("menuAdmin.php"); ?>
@@ -17,15 +19,7 @@
 
 		<?php include("tableH.php"); ?>
 		<?php 
-			switch(GC::$action){
-				case 'auditorias':
-					Dibujo::aud($tabla);
-					break;
-				
-				case 'usuarios':
-					Dibujo::usr($tabla);
-					break;
-			}
+			Dibujo::tableM($tabla);
 		?>
 
 	</div>
@@ -40,11 +34,11 @@
 		
 		<!-- // <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
 		<!-- // <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
-		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
-		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
-		<script type="text/javascript" language="javascript" src="js/dataTables.bootstrap.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript" language="javascript" src="assets/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" language="javascript" src="assets/js/dataTables.bootstrap.js"></script>
 		
 		
 		

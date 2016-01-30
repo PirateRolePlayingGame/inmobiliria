@@ -2,7 +2,7 @@
 
 class Dibujo
 {
-	public static function aud($tabla)
+/*	public static function aud($tabla)
 	{
 		echo "<table id='data-table'>";
 
@@ -61,6 +61,34 @@ class Dibujo
 		}	
 		echo "</tbody>";
 		echo "</table>";
+	}
+*/
+	public static function tableM($v)
+	{
+		echo "<div class='table-responsive'>";
+		echo "<table id='data-table' class='table table-bordered well'>";
+
+		echo "<thead>";
+		echo "<tr class='text-center'>";
+		foreach($v[0] as $key => $value)
+		{
+			print "<td>$key</td>";
+		}
+		echo "</tr>";
+		echo "</thead>";
+		echo "<tbody>";
+		foreach($v as $object)
+		{
+			echo "<tr class='text-center'>";
+			foreach($object as $key => $value)
+			{
+				echo "<td> $value </td>";
+			}
+			echo "</tr>";
+		}
+		echo "</tbody>";
+		echo "</table>";
+		echo "</div>";
 	}
 	
 }

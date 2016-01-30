@@ -29,7 +29,7 @@
 
 	//LLenar con controladores y acciones validas
 	$controllers = array('main' 	=> ['main', 'error'],
-						 'admin' 	=> ['auditorias', 'usuarios'],
+						 'admin' 	=> ['auditorias', 'usuarios', 'login', 'validar'],
 						 'userTest' 	=> ['test'],
 						 'auditoriaTest' 	=> ['test'],
 						 'error' 	=> ['_404']
