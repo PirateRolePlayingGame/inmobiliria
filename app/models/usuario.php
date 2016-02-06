@@ -33,11 +33,11 @@ class Usuario{
 
 		$req = $db->prepare('SELECT usuario.idUsuario as id, usuario.nombre as nombre, usuario.usuario as user,
 								usuario.contraseña as contraseña, usuario.correo as correo, usuario.telefono as telefono,
-								estatus.estatus as estatus, tipoUsuario.tipoUsuario as tipoUsuario,
+								estatus.estatus as estatus, tipousuario.tipoUsuario as tipoUsuario,
 								usuario.fechaEntrada as fechaEntrada, usuario.fechaSalida as fechaSalida
 								FROM usuario
 								INNER JOIN estatus on usuario.idEstatus = estatus.idEstatus
-								INNER JOIN tipoUsuario on usuario.idTipoUsuario = tipoUsuario.idTipoUsuario');
+								INNER JOIN tipousuario on usuario.idTipoUsuario = tipousuario.idTipoUsuario');
 		$req->execute();
 		foreach($req->fetchAll() as $usuario){
 			$arr[] = new Usuario($usuario['id'], $usuario['estatus'], $usuario['tipoUsuario'],
