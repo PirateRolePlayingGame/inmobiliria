@@ -15,7 +15,7 @@ class Auditoria
 		$this->actividad = $act;
 		$this->usuario = $us;
 		$this->fecha = $fec;
-		$this->codigo = $cod; 
+		$this->codigo = $cod;
 		$this->id = $ida;
 		$this->idUsuario = $idu;
 	}
@@ -64,7 +64,5 @@ class Auditoria
 		$req = $db->prepare('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values(:idu, :idinm, "Inhabilitó el inmueble", :fec)');
 		$req->execute(array(':idu' => $idu, ':idinm' => $idinm, ':fec' => $fecha));
 	}
-
-
 } 
 ?>

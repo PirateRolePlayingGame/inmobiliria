@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<base href="/Git/inmobiliaria/app/">
-	<title></title>
+	<!-- Base Samuel! -->
+	<!-- <base href="/Git/inmobiliaria/app/"> -->
+
+	<!-- Base Victor! -->
+	<base href="/Repos/GitHub/inmobiliaria/app/">
+	
+	<title>Admin Panel</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css"/>
 </head>
 <body>
 
@@ -19,7 +26,7 @@
 
 		<?php include("tableH.php"); ?>
 		<?php 
-			Dibujo::tableM($tabla);
+			Dibujo::tableOnlyHeader($tabla);
 		?>
 
 	</div>
@@ -32,54 +39,16 @@
 	
 		<!-- Scripts -->
 		
-		<!-- // <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script> -->
-		<!-- // <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
-		<script type="text/javascript" src="assets/js/jquery-1.7.1.min.js"></script>
-		<script type="text/javascript" src="assets/js/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-		<script type="text/javascript" language="javascript" src="assets/js/jquery.dataTables.min.js"></script>
-		<script type="text/javascript" language="javascript" src="assets/js/dataTables.bootstrap.js"></script>
-		
-		
-		
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$("a.eliminar_dato").click( function(e) {
-					e.preventDefault();
-					var url = this.href;
-					var titulo = this.title;
-					jConfirm(titulo,'Accion !!', function(r) {
-						if (r) 
-						location.href = url;
-					});
-				});
-			});
-		</script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.1/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.1.1/js/buttons.bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/select/1.1.0/js/dataTables.select.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.jeditable.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.datePicker.js"></script>
 
-		<script type="text/javascript" charset="utf-8">
-			$(document).ready(function(){
-				 $('#data-table').dataTable({
-					 //ordering: false, me elimina el ordenamiento y la funcion de ordenar al darle clicl a los encabezados
-					   "order": [[ 0, "desc" ]],
-					"language": {
-						"sProcessing":   "Procesando...",
-						"sLengthMenu":   "Mostrar _MENU_ registros",
-						"sZeroRecords":  "No se encontraron resultados",
-						"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
-						"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
-						"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
-						"sInfoPostFix":  "",
-						"sSearch":       "Buscar:",
-						"sUrl":          "",
-						"oPaginate": {
-							"sFirst":    "Primero",
-							"sPrevious": "Anterior",
-							"sNext":     "Siguiente",
-							"sLast":     "Último"
-						}
-					}
-				});
-			});
-		</script>
+	<script type="text/javascript" src="assets/CustomJS/ajaxController.js"></script>
 </body>
 </html>

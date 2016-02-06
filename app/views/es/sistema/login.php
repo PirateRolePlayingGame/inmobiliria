@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<base href="/Git/inmobiliaria/app/">
+	<!-- Base Samuel! -->
+	<!-- <base href="/Git/inmobiliaria/app/"> -->
+
+	<!-- Base Victor! -->
+	<base href="/Repos/GitHub/inmobiliaria/app/">
+	
 	<title>Administracion</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 

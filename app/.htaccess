@@ -1,26 +1,32 @@
 <IfModule mod_rewrite.c>
 # Activar RewriteEngine
 RewriteEngine on
-RewriteBase /Git/inmobiliaria/app/
+
+#Ruta Samuel
+#RewriteBase /Git/inmobiliaria/app/
+
+#Ruta Victor
+RewriteBase /Repos/GitHub/inmobiliaria/app/
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
  
 # Reescribir la URL solicitada por el usuario
-#RewriteRule ^(\w+)/?$ index.php?controller=$1&controller=null
 RewriteRule ^(\w{2,3})/(\w+)/(\w+)/?$ index.php?lang=$1&controller=$2&action=$3
+RewriteRule ^(\w{2,3})/(\w+)/(\w+)/(\d+)/?$ index.php?lang=$1&controller=$2&action=$3&param1=$4
 RewriteRule ^(\w+)/(\w+)/?$ index.php?controller=$1&action=$2
-#RewriteRule ^(\w{2,3})/(\w+)/(\w+)/(\d+)/?$ index.php?lang=$1&controller=$2&action=$3&param1=$4
-
-</IfModule>
+RewriteRule ^(\w+)/(\w+)/(\w+)/?$ index.php?controller=$1&action=$2&param1=$3
 
 # To prevent dir access
 Options -Indexes
 Options +FollowSymLinks
 
-#Error 404 Redirect
-ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
+#Error 404 Redirect Samuel
+#ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
+
+#Error 404 Redirect Victor
+ErrorDocument 404 /Repos/Github/inmobiliaria/app/index.php?controller=error&action=_404
 
 # To prevent file access
 #<Files "*.js">
@@ -33,3 +39,5 @@ ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
 # Order deny,allow
 # Deny from all
 #</FilesMatch>
+
+</IfModule>

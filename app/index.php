@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	header("Content-Type: text/html;charset=utf-8");
 	require_once('connection.php');
 	require_once('controllers/GlobalController.php');
@@ -16,6 +17,8 @@
 	// }else{
 		GC::$lang = 'es';
 	// }
+
+	$_SESSION['action'] = GC::$action;
 
 	require_once('routes.php');
 ?>
