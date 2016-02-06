@@ -85,6 +85,23 @@ class Usuario{
 			return 'Usuario Inexistente';
 		}
 	}
+
+
+	public static function actUsuario($upd, $id, $val)
+	{
+		$db = Db::getInstance();
+		// echo "Hello Nigger!";
+		// echo $upd;
+		// echo $id;
+		// echo $val;
+		// $query = "UPDATE usuario SET '$upd' = '$val' WHERE idUsuario = '$id'";
+		// $db->query($query);
+		// $upd = $db->quote($upd);
+		$req = $db->prepare('UPDATE usuario SET '.$upd. '= :val WHERE idUsuario = :id');
+		$req->execute(array('val' => $val, 'id' => $id));
+
+
+	}
 }
 
 ?>

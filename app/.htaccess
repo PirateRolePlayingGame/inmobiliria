@@ -3,10 +3,10 @@
 RewriteEngine on
 
 #Ruta Samuel
-#RewriteBase /Git/inmobiliaria/app/
+RewriteBase /Git/inmobiliaria/app/
 
 #Ruta Victor
-RewriteBase /Repos/GitHub/inmobiliaria/app/
+#RewriteBase /Repos/GitHub/inmobiliaria/app/
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
@@ -23,10 +23,10 @@ Options -Indexes
 Options +FollowSymLinks
 
 #Error 404 Redirect Samuel
-#ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
+ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
 
 #Error 404 Redirect Victor
-ErrorDocument 404 /Repos/Github/inmobiliaria/app/index.php?controller=error&action=_404
+#ErrorDocument 404 /Repos/Github/inmobiliaria/app/index.php?controller=error&action=_404
 
 # To prevent file access
 #<Files "*.js">
