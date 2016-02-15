@@ -97,8 +97,13 @@ class Usuario{
 		// $query = "UPDATE usuario SET '$upd' = '$val' WHERE idUsuario = '$id'";
 		// $db->query($query);
 		// $upd = $db->quote($upd);
+
+
 		$req = $db->prepare('UPDATE usuario SET '.$upd. '= :val WHERE idUsuario = :id');
 		$req->execute(array('val' => $val, 'id' => $id));
+		// $fecha = date('Y/m/d');
+		// $ut = substr($fecha, 2, 2);
+		// echo $ut;
 
 
 	}
