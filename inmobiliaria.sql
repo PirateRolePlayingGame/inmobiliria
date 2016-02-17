@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-01-2016 a las 04:39:08
+-- Tiempo de generación: 17-02-2016 a las 20:10:34
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `auditoria` (
 --
 
 INSERT INTO `auditoria` (`idAuditoria`, `idUsuario`, `idInmueble`, `actividad`, `fecha`) VALUES
-(1, 1, 1, 'Me cague en la puerta de la casa', '2016-01-12');
+(2, 1, 2, 'Elvis daño la tabla ', '2016-02-02');
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,7 @@ INSERT INTO `estatus` (`idEstatus`, `estatus`) VALUES
 
 CREATE TABLE `inmueble` (
   `idInmueble` int(11) NOT NULL,
-  `idEstatus` int(11) NOT NULL,
+  `idStat` int(11) NOT NULL,
   `idTipoInmueble` int(11) NOT NULL,
   `idTransaccion` int(11) NOT NULL,
   `idUbicacion` int(11) NOT NULL,
@@ -105,8 +105,8 @@ CREATE TABLE `inmueble` (
 -- Volcado de datos para la tabla `inmueble`
 --
 
-INSERT INTO `inmueble` (`idInmueble`, `idEstatus`, `idTipoInmueble`, `idTransaccion`, `idUbicacion`, `nombre`, `nBaños`, `nHabitaciones`, `metros`, `precio`, `nEstacionamiento`, `tlfDueño`, `codigo`, `descripcion`) VALUES
-(1, 1, 1, 1, 1, 'Casa depinga', 6, 20, 40000, 5000000, 6, 1337, 'C1', 'CASA ARRECHISIMA COMPRAME');
+INSERT INTO `inmueble` (`idInmueble`, `idStat`, `idTipoInmueble`, `idTransaccion`, `idUbicacion`, `nombre`, `nBaños`, `nHabitaciones`, `metros`, `precio`, `nEstacionamiento`, `tlfDueño`, `codigo`, `descripcion`) VALUES
+(2, 1, 1, 1, 1, 'La casa e Victor', 1, 1, 12, 1200000, 3, 124412441, 'C1', 'Aqui vive Victol! ');
 
 -- --------------------------------------------------------
 
@@ -141,6 +141,27 @@ CREATE TABLE `rinmueblefoto` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `statinmueble`
+--
+
+CREATE TABLE `statinmueble` (
+  `idStat` int(11) NOT NULL,
+  `estatus` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `statinmueble`
+--
+
+INSERT INTO `statinmueble` (`idStat`, `estatus`) VALUES
+(1, 'Activo'),
+(2, 'Pendiente'),
+(3, 'Eliminado'),
+(4, 'Mantenimiento');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tipoinmueble`
 --
 
@@ -156,7 +177,11 @@ CREATE TABLE `tipoinmueble` (
 INSERT INTO `tipoinmueble` (`idTipoInmueble`, `tipoInmueble`) VALUES
 (1, 'Casa'),
 (2, 'Apartamento'),
-(3, 'Terreno');
+(3, 'Terreno'),
+(4, 'Local'),
+(5, 'TownHouse'),
+(6, 'Oficina'),
+(7, 'Galpon');
 
 -- --------------------------------------------------------
 
@@ -239,7 +264,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `idEstatus`, `idTipoUsuario`, `usuario`, `contraseña`, `nombre`, `telefono`, `correo`, `fechaEntrada`, `fechaSalida`) VALUES
-(1, 1, 1, 'PenguinAdmin', '1234', 'Pinguino Rey', '04124503477', 'victormtortolero@gmail.com', '0000-00-00', '0000-00-00'),
+(1, 1, 1, 'PenguinAdmin', '1234', 'Pinguino Rey', '04124503477', 'victormtortolero@gmail.com', '2016-01-14', NULL),
 (2, 1, 2, 'elvis', '1234', 'Elvis Tek', '12346546', 'Elvis@gmail.com', '2016-01-14', NULL);
 
 --
@@ -271,10 +296,10 @@ ALTER TABLE `estatus`
 --
 ALTER TABLE `inmueble`
   ADD PRIMARY KEY (`idInmueble`),
-  ADD KEY `idEstatus` (`idEstatus`),
   ADD KEY `idTipoInmueble` (`idTipoInmueble`),
   ADD KEY `idTransaccion` (`idTransaccion`),
-  ADD KEY `idUbicacion` (`idUbicacion`);
+  ADD KEY `idUbicacion` (`idUbicacion`),
+  ADD KEY `idStat` (`idStat`);
 
 --
 -- Indices de la tabla `municipio`
@@ -288,6 +313,12 @@ ALTER TABLE `municipio`
 ALTER TABLE `rinmueblefoto`
   ADD PRIMARY KEY (`idRInmuebleFoto`),
   ADD KEY `idInmueble` (`idInmueble`);
+
+--
+-- Indices de la tabla `statinmueble`
+--
+ALTER TABLE `statinmueble`
+  ADD PRIMARY KEY (`idStat`);
 
 --
 -- Indices de la tabla `tipoinmueble`
@@ -331,7 +362,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `auditoria`
 --
 ALTER TABLE `auditoria`
-  MODIFY `idAuditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idAuditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `estado`
 --
@@ -346,7 +377,7 @@ ALTER TABLE `estatus`
 -- AUTO_INCREMENT de la tabla `inmueble`
 --
 ALTER TABLE `inmueble`
-  MODIFY `idInmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idInmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `municipio`
 --
@@ -358,10 +389,15 @@ ALTER TABLE `municipio`
 ALTER TABLE `rinmueblefoto`
   MODIFY `idRInmuebleFoto` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `statinmueble`
+--
+ALTER TABLE `statinmueble`
+  MODIFY `idStat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT de la tabla `tipoinmueble`
 --
 ALTER TABLE `tipoinmueble`
-  MODIFY `idTipoInmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idTipoInmueble` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `tipousuario`
 --
@@ -397,8 +433,8 @@ ALTER TABLE `auditoria`
 -- Filtros para la tabla `inmueble`
 --
 ALTER TABLE `inmueble`
+  ADD CONSTRAINT `inmueble_ibfk_5` FOREIGN KEY (`idStat`) REFERENCES `statinmueble` (`idStat`),
   ADD CONSTRAINT `inmueble_ibfk_1` FOREIGN KEY (`idTipoInmueble`) REFERENCES `tipoinmueble` (`idTipoInmueble`),
-  ADD CONSTRAINT `inmueble_ibfk_2` FOREIGN KEY (`idEstatus`) REFERENCES `estatus` (`idEstatus`),
   ADD CONSTRAINT `inmueble_ibfk_3` FOREIGN KEY (`idTransaccion`) REFERENCES `transaccion` (`idTransaccion`),
   ADD CONSTRAINT `inmueble_ibfk_4` FOREIGN KEY (`idUbicacion`) REFERENCES `ubicacion` (`idUbicacion`);
 
