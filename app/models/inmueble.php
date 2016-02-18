@@ -7,6 +7,8 @@ class Inmueble
 	public $tipoInmueble;
 	public $transaccion;
 	public $ubicacion;
+	public $municipio;
+	public $estado;
 	public $nombre;
 	public $baños;
 	public $habitaciones;
@@ -17,13 +19,15 @@ class Inmueble
 	public $codigo;
 	public $descripcion;
 
-	public function __construct($i, $est, $tipoIn, $trans, $ubc, $nom, $ba, $hab, $met, $prec, $est, $tl, $cod, $desc)
+	public function __construct($i, $est, $tipoIn, $trans, $ubc, $mun, $estad, $nom, $ba, $hab, $met, $prec, $est, $tl, $cod, $desc)
 	{
 		$this->id = $i;
 		$this->status = $st;
 		$this->tipoInmueble = $tipoIn;
 		$this->transaccion = $trans;
 		$this->ubicacion = $ubc;
+		$this->municipio = $mun;
+		$this->estado = $estad;
 		$this->nombre = $nom;
 		$this->baños = $ba;
 		$this->habitaciones = $hab;
@@ -53,11 +57,19 @@ class Inmueble
 								INNER JOIN ubicacion on inmueble.idUbicacion = ubicacion.idUbicacion
 								INNER JOIN municipio on ubicacion.idMunicipio = municipio.idMunicipio
 								INNER JOIN estado on ubicacion.idEstado = estado.idEstado'); 
+		$req = $db->execute()
+		foreach($req->fetchAll() as $inm)
+		{
+			$v = new Inmueble($inm['Id'], $inm['Estatus'], $inm['Tipo'], $inm['Transaccion'], $inm['Direccion'], $inm['Municipio'], $inm['Estado'],
+				$inm['Nombre'], $inm['NrBaños'], $inm['NrHabitaciones'], $inm['Metros'], $inm['Precio'], $inm['Estacionamiento'], $inm['Telefono'],
+				$inm['Codigo'], $inm['Descripcion']);
+		}
+		return $v;
 	}
 } 
 
 
-//Generar fecha para el codigo:
+//Generar año para el codigo:
 // $fecha = date('Y/m/d');
 		// $ut = substr($fecha, 2, 2);
 		// echo $ut;
