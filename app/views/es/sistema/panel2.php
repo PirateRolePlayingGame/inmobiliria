@@ -11,28 +11,23 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-image-gallery.css" media="screen">
+	<link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 </head>
 <body>
 
 
 	<div class="container-fluid">
-		<div class="row">
-			<?php include("menuAdmin.php"); ?>
-		</div>
-	</div>
-	<div class="container">
-		<br>
-		<br>
-
-		<?php include("tableH.php"); ?>
-		<?php 
-			Dibujo::tableOnlyHeader($tabla);
-		?>
-
+		<a  id="image-viewer" href="views/es/sistema/imagenes.php">
+			<button class="btn btn-primary">TRY THIS PLOX</button>
+		</a>
 	</div>
 
 
-
+	<?php
+		include("img-gallery.php");
+	?>
 
 	
 
@@ -49,12 +44,30 @@
 	<script type="text/javascript" src="assets/js/jquery.jeditable.js"></script>
 	<script type="text/javascript" src="assets/js/jquery.datePicker.js"></script>
 
-	<script type="text/javascript" src="assets/CustomJS/ajaxController.js"></script>
-
-	<!-- <script type="text/javascript" src="assets/fancyapps-fancyBox-18d1712/lib/jquery-1.10.1.min.js"></script> -->
-	<!-- <script type="text/javascript" src="assets/fancyapps-fancyBox-18d1712/lib/jquery-1.9.0.min.js"></script> -->
+	<!-- <script type="text/javascript" src="assets/CustomJS/ajaxController.js"></script> -->
+	<script type="text/javascript" src="assets/fancyapps-fancyBox-18d1712/lib/jquery-1.9.0.min.js"></script>
+	<script type="text/javascript" src="assets/fancyapps-fancyBox-18d1712/lib/jquery-1.10.1.min.js"></script>
+	
 	<script type="text/javascript" src="assets/fancyapps-fancyBox-18d1712/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 	<script type="text/javascript" src="assets/fancyapps-fancyBox-18d1712/source/jquery.fancybox.js"></script>
+
+	<script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+	<script src="assets/js/bootstrap-image-gallery.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#image-viewer").fancybox({
+				openEffect        : 'elastic',
+	            closeEffect       : 'elastic',
+		        width              : '50%',
+		        height            : '20%',
+		        transitionIn      : 'fade',
+		        transitionOut     : 'fade',
+		        type              : 'iframe',
+		        closeBtn          : true
+			});
+		});
+	</script>
 
 </body>
 </html>
