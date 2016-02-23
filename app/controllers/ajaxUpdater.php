@@ -31,6 +31,36 @@ class AjaxUpdater{
 		Usuario::actUsuario($upd, $id, $val);
 		return $retArray[$val];
 	}
+
+
+	public static function ubicacion()
+	{
+		include(__DIR__ . '/../models/cortos.php');
+		include(__DIR__ . '/../models/ubicacion.php');
+
+		$pos = strpos($_POST['id'], ' ');
+		$upd = substr($_POST['id'], 0, $pos);
+		$id = substr($_POST['id'], $pos+1);
+		$val = $_POST['value'];
+		$retArray = array($val => $val);
+
+		switch($upd)
+		{
+			case 'Direccion':
+				Ubicacion::actUbicacion($id, $val);
+				break;
+
+			case 'Municipio':
+				Corto::actMunicipio($id, $val);
+				break;
+
+			case 'Estado':
+				Corto::actEstado($id, $val);
+				break;
+		}
+		return $ratArray[$val];
+
+	}
 }
 	
 include(__DIR__ . '/../connection.php');

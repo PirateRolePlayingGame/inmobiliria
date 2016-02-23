@@ -70,7 +70,7 @@ class Inmueble
 
 
 //Generar año para el codigo:
-// $fecha = date('Y/m/d');
+		// $fecha = date('Y/m/d');
 		// $ut = substr($fecha, 2, 2);
 		// echo $ut;
 ?>
