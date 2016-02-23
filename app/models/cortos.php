@@ -111,6 +111,20 @@ class Corto
 		}
 		return $v;
 	}
+
+	public static function actEstado($id, $val)
+	{
+		$db = Db::getInstace();
+		$req = $db->prepare('UPDATE estado SET estado = :val WHERE idEstado = :id');
+		$req->execute(array('val' => $val, 'id' => $id));
+	}
+
+	public static function actMunicipio($id, $val)
+	{
+		$db = Db::getInstace();
+		$req = $db->prepare('UPDATE municipio SET municipio = :val WHERE idMunicipio = :id');
+		$req->execute(array('val' => $val, 'id' => $id));
+	}
 }
 
 
