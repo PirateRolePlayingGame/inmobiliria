@@ -99,11 +99,8 @@ class Usuario{
 		// $upd = $db->quote($upd);
 
 
-		$req = $db->prepare('UPDATE usuario SET '.$upd. '= :val WHERE idUsuario = :id');
+		$req = $db->prepare('UPDATE usuario SET ' . $upd . ' = :val WHERE idUsuario = :id');
 		$req->execute(array('val' => $val, 'id' => $id));
-		
-
-
 	}
 }
 

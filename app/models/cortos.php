@@ -21,7 +21,7 @@ class Corto
 		$req->execute();
 		foreach($req->fetchAll() as $tip)
 		{
-			$v = new Corto($tip['id'], $tip['nombre']);
+			$v[] = new Corto($tip['id'], $tip['nombre']);
 		}
 		return $v;
 	}
@@ -35,7 +35,7 @@ class Corto
 		$req->execute();
 		foreach($req->fetchAll() as $tip)
 		{
-			$v = new Corto($tip['id'], $tip['nombre']);
+			$v[] = new Corto($tip['id'], $tip['nombre']);
 		}
 		return $v;
 	}
@@ -49,7 +49,7 @@ class Corto
 		$req->execute();
 		foreach($req->fetchAll() as $tip)
 		{
-			$v = new Corto($tip['id'], $tip['nombre']);
+			$v[] = new Corto($tip['id'], $tip['nombre']);
 		}
 		return $v;
 	}
@@ -63,7 +63,7 @@ class Corto
 		$req->execute();
 		foreach($req->fetchAll() as $tip)
 		{
-			$v = new Corto($tip['id'], $tip['nombre']);
+			$v[] = new Corto($tip['id'], $tip['nombre']);
 		}
 		return $v;
 	}
@@ -77,7 +77,7 @@ class Corto
 		$req->execute();
 		foreach($req->fetchAll() as $tip)
 		{
-			$v = new Corto($tip['id'], $tip['nombre']);
+			$v[] = new Corto($tip['id'], $tip['nombre']);
 		}
 		return $v;
 	}
@@ -92,7 +92,7 @@ class Corto
 		$req->execute();
 		foreach($req->fetchAll() as $tip)
 		{
-			$v = new Corto($tip['id'], $tip['nombre']);
+			$v[] = new Corto($tip['id'], $tip['nombre']);
 		}
 		return $v;
 	}
@@ -107,7 +107,7 @@ class Corto
 		$req->execute();
 		foreach($req->fetchAll() as $tip)
 		{
-			$v = new Corto($tip['id'], $tip['nombre']);
+			$v[] = new Corto($tip['id'], $tip['nombre']);
 		}
 		return $v;
 	}
