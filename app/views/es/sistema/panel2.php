@@ -59,8 +59,8 @@
 			$("#image-viewer").fancybox({
 				openEffect        : 'elastic',
 	            closeEffect       : 'elastic',
-		        width              : '50%',
-		        height            : '20%',
+		        width              : '80%',
+		        height            : '50%',
 		        transitionIn      : 'fade',
 		        transitionOut     : 'fade',
 		        type              : 'iframe',
