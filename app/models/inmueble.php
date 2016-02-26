@@ -60,11 +60,38 @@ class Inmueble
 		$req = $db->execute()
 		foreach($req->fetchAll() as $inm)
 		{
-			$v = new Inmueble($inm['Id'], $inm['Estatus'], $inm['Tipo'], $inm['Transaccion'], $inm['Direccion'], $inm['Municipio'], $inm['Estado'],
+			$v[] = new Inmueble($inm['Id'], $inm['Estatus'], $inm['Tipo'], $inm['Transaccion'], $inm['Direccion'], $inm['Municipio'], $inm['Estado'],
 				$inm['Nombre'], $inm['NrBaños'], $inm['NrHabitaciones'], $inm['Metros'], $inm['Precio'], $inm['Estacionamiento'], $inm['Telefono'],
 				$inm['Codigo'], $inm['Descripcion']);
 		}
 		return $v;
+	}
+
+
+	public static function obtImagenes($id)
+	{
+		$v = array();
+		$db = Db::getInstance();
+		$req = $db->prepare('SELECT rinmueblefoto.idRInmuebleFoto as Id, rinmueblefoto.foto as foto 
+								from rinmueblefoto
+								WHERE idInmueble = :id');
+		$req = $db->execute(array('id' => $id));
+		foreach($req->fetchAll() as $img)
+		{
+			$v[] = $img['foto'];
+		}
+		return $v;
+	}
+
+	public static function agrImagenes($id)
+	{
+		$v = [];
+		$db = Db::getInstance();
+		$foto = "";
+
+		$req = $db->prepare('INSERT into rinmueblefoto(idInmueble, foto) values(:id, :foto)');
+		$req = $db->execute(array('id' => $id, 'foto' => $foto));
+		$last = $db->lastInserId();
 	}
 } 
 
@@ -73,4 +100,7 @@ class Inmueble
 		// $fecha = date('Y/m/d');
 		// $ut = substr($fecha, 2, 2);
 		// echo $ut;
+
+
+
 ?>
