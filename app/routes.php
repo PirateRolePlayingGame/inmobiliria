@@ -19,21 +19,27 @@
 				require_once('/models/auditoria.php');
 				$c = new AuditoriaTestController();
 				break;
+			case 'inmobTest':
+				require_once('/models/inmueble.php');
+				$c = new InmobiliariaTestController();
+				break;
 			case 'error':
 				$c = new ErrorController();
 				break;
 		}
-
+		print 'pre funcc' . '<br>';
 		$c->{$a}();
+		print '<br>' . 'post funcc' . '<br>';
 	}
 
 	//LLenar con controladores y acciones validas
-	$controllers = array('main' 	=> ['main', 'error'],
-						 'admin' 	=> ['auditorias', 'usuarios', 'login', 'validar'],
-						 'userTest' 	=> ['test'],
-						 'auditoriaTest' 	=> ['test'],
-						 'error' 	=> ['_404']
-						 );
+	$controllers = array('main' 	          => ['main', 'error'],
+						 'admin' 	          => ['auditorias', 'usuarios', 'login', 'validar'],
+						 'userTest' 	      => ['test'],
+						 'auditoriaTest' 	  => ['test'],
+						 'inmobTest'   => ['test'],
+						 'error' 	          => ['_404']
+						);
 
 	//Lenguajes validos
 	$langs = array('es');

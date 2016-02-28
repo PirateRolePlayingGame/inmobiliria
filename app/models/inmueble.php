@@ -57,7 +57,7 @@ class Inmueble
 								INNER JOIN ubicacion on inmueble.idUbicacion = ubicacion.idUbicacion
 								INNER JOIN municipio on ubicacion.idMunicipio = municipio.idMunicipio
 								INNER JOIN estado on ubicacion.idEstado = estado.idEstado'); 
-		$req = $db->execute()
+		$req->execute();
 		foreach($req->fetchAll() as $inm)
 		{
 			$v[] = new Inmueble($inm['Id'], $inm['Estatus'], $inm['Tipo'], $inm['Transaccion'], $inm['Direccion'], $inm['Municipio'], $inm['Estado'],
@@ -75,7 +75,7 @@ class Inmueble
 		$req = $db->prepare('SELECT rinmueblefoto.idRInmuebleFoto as Id, rinmueblefoto.foto as foto 
 								from rinmueblefoto
 								WHERE idInmueble = :id');
-		$req = $db->execute(array('id' => $id));
+		$req->execute(array('id' => $id));
 		foreach($req->fetchAll() as $img)
 		{
 			$v[] = $img['foto'];
@@ -87,11 +87,15 @@ class Inmueble
 	{
 		$v = [];
 		$db = Db::getInstance();
-		$foto = "";
+		$foto = "dummy";
 
 		$req = $db->prepare('INSERT into rinmueblefoto(idInmueble, foto) values(:id, :foto)');
-		$req = $db->execute(array('id' => $id, 'foto' => $foto));
-		$last = $db->lastInserId();
+		$req->execute(array('id' => $id, 'foto' => $foto));
+		$last = $db->lastInsertId();
+		print "last = " . $last;
+
+		$req = $db->prepare('UPDATE rinmueblefoto SET foto = :nombre WHERE idrinmueblefoto = :id');
+		$req->execute(array('nombre' => ('f' . $last), 'id' => $last));
 	}
 } 
 

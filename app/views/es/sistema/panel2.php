@@ -2,10 +2,10 @@
 <html>
 <head>
 	<!-- Base Samuel! -->
-	<base href="/Git/inmobiliaria/app/">
+	<!-- <base href="/Git/inmobiliaria/app/"> -->
 
 	<!-- Base Victor! -->
-	<!-- <base href="/git/GitHub/inmobiliaria/app/">  -->
+	<base href="/git/GitHub/inmobiliaria/app/"> 
 	
 	<title>Admin Panel</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -19,14 +19,14 @@
 
 
 	<div class="container-fluid">
-		<a  id="image-viewer" href="views/es/sistema/imagenes.php">
+		<a  id="image-viewer" href="views/es/sistema/galeria2.php">
 			<button class="btn btn-primary">TRY THIS PLOX</button>
 		</a>
 	</div>
 
 
 	<?php
-		include("img-gallery.php");
+		// include("img-gallery.php");
 	?>
 
 	

@@ -20,5 +20,7 @@
 
 	$_SESSION['action'] = GC::$action;
 
+	$_SESSION['debug'] = true;
+
 	require_once('routes.php');
 ?>
