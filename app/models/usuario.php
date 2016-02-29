@@ -50,9 +50,11 @@ class Usuario{
 	}
 
 	
-	public static function agregarUsuario($userName, $contraseña, $nombre, $correo, $telefono, $fechaEntrada){
+	public static function agregarUsuario($userName, $contraseña, $nombre, $correo, $telefono){
 		$db = Db::getInstance();
 		
+
+		$fechaEntrada = date('Y/m/d');
 		$req = $db->prepare('SELECT usuario.usuario as user FROM usuario WHERE usuario.usuario = :usr');
 		
 		if($req->execute(array(':usr' => $userName)) && $req->fetch() == null){
@@ -101,6 +103,14 @@ class Usuario{
 
 		$req = $db->prepare('UPDATE usuario SET ' . $upd . ' = :val WHERE idUsuario = :id');
 		$req->execute(array('val' => $val, 'id' => $id));
+	}
+
+	public static function elimUsuario($id)
+	{
+		$db = Db::getInstance();
+		$fecha = date('Y/m/d');
+		$req = $db->prepare('UPDATE usuario SET idEstatus = 2, fechaSalida = :fec WHERE idUsuario = :id');
+		$req->execute(array(':fec' => $fecha, ':id' => $id));
 	}
 }
 

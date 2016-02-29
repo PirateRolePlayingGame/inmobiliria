@@ -40,6 +40,13 @@ class Ubicacion
 	}
 
 	
+	public static function agrUbicacion($ide, $idm, $dir)
+	{
+		$db = Db::getInstance();
+		$req = $db->prepare('INSERT into ubicacion(idEstado, idMunicipio, direccion) values(:ide, :idm, :dir)');
+		$req->execute(array(':ide' => $ide, ':idm' => $idm, ':dir' => $dir));
+	}
+
 	//Falta agregar y eliminar
 }
 

@@ -97,6 +97,15 @@ class Inmueble
 		$req = $db->prepare('UPDATE rinmueblefoto SET foto = :nombre WHERE idrinmueblefoto = :id');
 		$req->execute(array('nombre' => ('f' . $last), 'id' => $last));
 	}
+
+
+	public static function elimInmueble($id)
+	{
+		// include(__DIR__ . '/auditoria.php');
+		$db = Db::getInstance();
+		$req = $db->prepare('UPDATE inmueble SET idStat = :est WHERE idInmueble = :id');
+		$req->execute(array(':est' => 3, 'id' => $id));
+	}
 } 
 
 
