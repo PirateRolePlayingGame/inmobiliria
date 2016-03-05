@@ -106,7 +106,22 @@ class Inmueble
 		$req = $db->prepare('UPDATE inmueble SET idStat = :est WHERE idInmueble = :id');
 		$req->execute(array(':est' => 3, 'id' => $id));
 	}
+
+
+	// public static function formInmueble()
+	// {
+	// 	$arr = array();
+	// 	$cor = array();
+	// 	$cor['Estatus'] = ['', '', '', '', ''];
+	// 	$arr = ["Nombre", "Baños", "Habitaciones", "Metros", "Precio", "Estacionamieto", "Telefono", "Descripcion", "Direccion"];
+	// 	$v = array();
+	// 	$v['nombre'] = "usuario";
+	// 	$v['datos'] = $arr;
+	// 	$v['drop'] = $cor;
+	// 	return $v;
+	// }
 } 
+
 
 
 //Generar año para el codigo:
