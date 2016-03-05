@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-02-2016 a las 20:10:34
+-- Tiempo de generación: 05-03-2016 a las 22:46:07
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `auditoria` (
 --
 
 INSERT INTO `auditoria` (`idAuditoria`, `idUsuario`, `idInmueble`, `actividad`, `fecha`) VALUES
-(2, 1, 2, 'Elvis daño la tabla ', '2016-02-02');
+(1, 1, 2, 'Primera Auditoria', '2016-03-05');
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,8 @@ CREATE TABLE `municipio` (
 --
 
 INSERT INTO `municipio` (`idMunicipio`, `municipio`) VALUES
-(1, 'Libertador');
+(1, 'Libertador'),
+(2, 'Bejuma');
 
 -- --------------------------------------------------------
 
@@ -250,6 +251,7 @@ CREATE TABLE `usuario` (
   `idUsuario` int(11) NOT NULL,
   `idEstatus` int(11) NOT NULL,
   `idTipoUsuario` int(11) NOT NULL,
+  `foto` varchar(25) NOT NULL,
   `usuario` varchar(25) NOT NULL,
   `contraseña` varchar(25) NOT NULL,
   `nombre` varchar(50) NOT NULL,
@@ -263,9 +265,8 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `idEstatus`, `idTipoUsuario`, `usuario`, `contraseña`, `nombre`, `telefono`, `correo`, `fechaEntrada`, `fechaSalida`) VALUES
-(1, 1, 1, 'PenguinAdmin', '1234', 'Pinguino Rey', '04124503477', 'victormtortolero@gmail.com', '2016-01-14', NULL),
-(2, 1, 2, 'elvis', '1234', 'Elvis Tek', '12346546', 'Elvis@gmail.com', '2016-01-14', NULL);
+INSERT INTO `usuario` (`idUsuario`, `idEstatus`, `idTipoUsuario`, `foto`, `usuario`, `contraseña`, `nombre`, `telefono`, `correo`, `fechaEntrada`, `fechaSalida`) VALUES
+(1, 1, 1, '""', 'milagros.ramos', 'administradora', 'Milagros Ramos', '04144951323', 'milagros.ramos@lhgrupoinmobiliario.com', '2016-03-05', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -362,7 +363,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `auditoria`
 --
 ALTER TABLE `auditoria`
-  MODIFY `idAuditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idAuditoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `estado`
 --
@@ -382,7 +383,7 @@ ALTER TABLE `inmueble`
 -- AUTO_INCREMENT de la tabla `municipio`
 --
 ALTER TABLE `municipio`
-  MODIFY `idMunicipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idMunicipio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `rinmueblefoto`
 --
@@ -417,7 +418,7 @@ ALTER TABLE `ubicacion`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Restricciones para tablas volcadas
 --
@@ -433,10 +434,10 @@ ALTER TABLE `auditoria`
 -- Filtros para la tabla `inmueble`
 --
 ALTER TABLE `inmueble`
-  ADD CONSTRAINT `inmueble_ibfk_5` FOREIGN KEY (`idStat`) REFERENCES `statinmueble` (`idStat`),
   ADD CONSTRAINT `inmueble_ibfk_1` FOREIGN KEY (`idTipoInmueble`) REFERENCES `tipoinmueble` (`idTipoInmueble`),
   ADD CONSTRAINT `inmueble_ibfk_3` FOREIGN KEY (`idTransaccion`) REFERENCES `transaccion` (`idTransaccion`),
-  ADD CONSTRAINT `inmueble_ibfk_4` FOREIGN KEY (`idUbicacion`) REFERENCES `ubicacion` (`idUbicacion`);
+  ADD CONSTRAINT `inmueble_ibfk_4` FOREIGN KEY (`idUbicacion`) REFERENCES `ubicacion` (`idUbicacion`),
+  ADD CONSTRAINT `inmueble_ibfk_5` FOREIGN KEY (`idStat`) REFERENCES `statinmueble` (`idStat`);
 
 --
 -- Filtros para la tabla `rinmueblefoto`
