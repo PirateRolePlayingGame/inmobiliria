@@ -15,6 +15,16 @@
 	    position: relative;
 }
 
+.imagen2{
+  max-height: 160px;
+  /*height: 220px;*/
+  /*width: 300px;*/
+}
+
+.img-max-size{
+  max-height: 250px;
+}
+
 .coso{
 	position: absolute;
     right: 0;

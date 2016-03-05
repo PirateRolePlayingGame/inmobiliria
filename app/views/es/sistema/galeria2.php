@@ -29,8 +29,9 @@
 									<span class="icon-bar"></span>
 									</button>
 									<p><form action="#">
-										<div class="col-lg-6 col-sm-6 col-12">
-											<h4>Input Groups</h4>
+									<h4>Input Groups</h4>
+										
+										<div class="col-md-8">
 											<div class="input-group">
 												<span class="input-group-btn">
 													<span class="btn btn-primary btn-file">
@@ -38,11 +39,18 @@
 													</span>
 												</span>
 												<input type="text" class="form-control" readonly>
+												
 											</div>
-											<span class="help-block">
-												Try selecting one or more files and watch the feedback
-											</span>
 										</div>
+
+										<div class="col-md-4">
+											<div class="input-group-btn">
+												<button class="btn btn-primary" type="submit">
+													Subir
+												</button>
+											</div>
+										</div>
+
 									</form></p>
 								</div>
 								</div><!-- /.container-fluid -->
@@ -64,7 +72,7 @@
 									<div id="gay" style="display: none; ">
 										<h2>Preview</h2>
 										<hr>
-										<img src="assets/img/gay.png" height="362" width="480" alt="" class="img-responsive img-circle	">
+										<img src="assets/img/gay.png" id="" height="362" width="480" alt="" class="img-responsive img-circle img-max-size image-preview">
 										<br>
 										<a href="#">Borrar Permanentemente</a>
 									</div>
