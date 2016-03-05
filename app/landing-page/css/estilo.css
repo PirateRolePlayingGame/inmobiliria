@@ -1,0 +1,345 @@
+#indexmenu.navbar-default .navbar-brand {
+    color: rgba(0, 0, 0, 1);
+}
+#indexmenu.navbar-default {
+    font-size: 15px;
+    background-color: rgba(255, 248, 64, 1);
+    background: -webkit-linear-gradient(top, rgba(230, 208, 126, 1) 0%, rgba(240, 196, 39, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 248, 64, 1) 0%, rgba(240, 196, 39, 1) 100%);
+    border-bottom-width: 1px;
+}
+#indexmenu.navbar-default .navbar-nav>li>a {
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(255, 248, 64, 1);
+    background: -webkit-linear-gradient(top, rgba(240, 210, 88, 1) 0%, rgba(240, 202, 67, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 248, 64, 1) 0%, rgba(240, 202, 67, 1) 100%);
+}
+#indexmenu.navbar-default .navbar-nav>li>a:hover,
+#indexmenu.navbar-default .navbar-nav>li>a:focus {
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(198, 24, 34, 1);
+    background: -webkit-linear-gradient(top, rgba(248, 248, 248, 0) 0%, rgba(198, 24, 34, 1) 100%);
+    background: linear-gradient(to bottom, rgba(248, 248, 248, 0) 0%, rgba(198, 24, 34, 1) 100%);
+}
+#indexmenu.navbar-default .navbar-nav>.active>a,
+#indexmenu.navbar-default .navbar-nav>.active>a:hover,
+#indexmenu.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(224, 61, 69, 1);
+    background: -webkit-linear-gradient(top, rgba(191, 28, 34, 1) 0%, rgba(224, 61, 69, 1) 100%);
+    background: linear-gradient(to bottom, rgba(191, 28, 34, 1) 0%, rgba(224, 61, 69, 1) 100%);
+}
+#indexmenu.navbar-default .navbar-toggle {
+    border-color: #e03d45;
+}
+#indexmenu.navbar-default .navbar-toggle:hover,
+#indexmenu.navbar-default .navbar-toggle:focus {
+    background-color: #e03d45;
+}
+#indexmenu.navbar-default .navbar-toggle .icon-bar {
+    background-color: #e03d45;
+}
+#indexmenu.navbar-default .navbar-toggle:hover .icon-bar,
+#indexmenu.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #fff940;
+}
+#dropdown{
+  background-color: #fff940;  
+    
+}
+.drop{
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(240, 202, 67, 1);
+    background: -webkit-linear-gradient(top, rgba(240, 210, 88, 1) 0%, rgba(240, 202, 67, 1) 100%);
+    background: linear-gradient(to bottom, rgba(240, 210, 88, 1) 0%, rgba(240, 202, 67, 1) 100%);
+
+}
+.dropdown-menu li>a:hover{
+  
+    color: rgba(0, 0, 0, 1);
+    background-color: rgba(224, 61, 69, 1);
+    background: -webkit-linear-gradient(top, rgba(191, 28, 34, 1) 0%, rgba(224, 61, 69, 1) 100%);
+    background: linear-gradient(to bottom, rgba(191, 28, 34, 1) 0%, rgba(224, 61, 69, 1) 100%);
+    
+
+}
+
+---------------------------------
+
+.btndetalle{
+
+padding: inherit;
+
+
+}
+
+---------------------------------
+//pagina vendedores//
+
+body{padding-top:30px;}
+
+.glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+small {
+display: block;
+line-height: 1.428571429;
+color: #999;
+}
+
+--------------------------------
+
+body{
+    
+}
+
+.show-on-hover:hover > ul.dropdown-menu {
+    display: block;    
+}
+
+-----------------------------------
+
+
+
+.menu, .menu ul, .menu li, .menu a{
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+}
+
+.menu li {
+	position: relative;
+	list-style: none;
+	float: left;
+	display: block;
+	height: 40px;
+}
+
+
+
+.menu ul{
+	position: absolute;
+	top: 40px;
+	left:0;
+	
+	opacity: 0;
+	background: #f0c427;
+	
+	border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	-moz-border-radius: 0 0 5px 5px;
+	
+	transition: opacity  .20s ease .1s;
+	-webkit-transition: opacity  .20s ease .1s;
+	-moz-transition: opacity  .20s ease .1s;
+	-o-transition: opacity  .20s ease .1s;
+	-ms-transition: opacity  .20s ease .1s;
+	
+}
+
+.menu li:hover > ul { opacity: 1; }
+.menu ul li {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+ 
+   
+}
+.menu li:hover > ul li {
+    height: 36px;
+    overflow: visible;
+    padding: 0;
+}
+.menu ul li a {
+    width: 130px;
+    padding: 4px 10px;
+    margin: 0;
+ 
+    border: none;
+    border-bottom: 1px solid #f0c427;
+}
+.menu ul li:last-child a { border: none; }
+
+
+---------------------------------------
+ /*busqueda por codigo*/
+
+ #custom-search-form {
+        margin:0;
+        margin-top: 5px;
+        padding: 0;
+    }
+ 
+    #custom-search-form .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    #custom-search-form button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+
+-----------------------------------------
+.imgcontacto{
+
+padding: 50px;
+
+}
+
+---------------------------------------
+
+/*social*/
+
+--------------------------------
+#social:hover {
+    			-webkit-transform:scale(1.1); 
+-moz-transform:scale(1.1); 
+-o-transform:scale(1.1); 
+			}
+			#social {
+				-webkit-transform:scale(0.8);
+                /* Browser Variations: */
+-moz-transform:scale(0.8);
+-o-transform:scale(0.8); 
+-webkit-transition-duration: 0.5s; 
+-moz-transition-duration: 0.5s;
+-o-transition-duration: 0.5s;
+			}           
+/* 
+    Only Needed in Multi-Coloured Variation 
+                                               */
+			.social-fb:hover {
+				color: #3B5998;
+			}
+			.social-tw:hover {
+				color: #4099FF;
+			}
+			.social-gp:hover {
+				color: #d34836;
+			}
+			.social-em:hover {
+				color: #f39c12;
+			}
+
+----------------------------------------
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+}
+
+---------------------------------------
+
+
+/*=========================
+  Icons
+ ================= */
+
+/* footer social icons */
+ul.social-network {
+	list-style: none;
+	display: inline;
+	margin-left:0 !important;
+	padding: 0;
+}
+ul.social-network li {
+	display: inline;
+	margin: 0 5px;
+}
+
+
+/* footer social icons */
+.social-network a.icoRss:hover {
+	background-color: #F56505;
+}
+.social-network a.icoFacebook:hover {
+	background-color:#3B5998;
+}
+.social-network a.icoTwitter:hover {
+	background-color:#33ccff;
+}
+.social-network a.icoGoogle:hover {
+	background-color:#BD3518;
+}
+.social-network a.icoVimeo:hover {
+	background-color:#0590B8;
+}
+.social-network a.icoLinkedin:hover {
+	background-color:#007bb7;
+}
+.social-network a.icoRss:hover i, .social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i,
+.social-network a.icoGoogle:hover i, .social-network a.icoVimeo:hover i, .social-network a.icoLinkedin:hover i {
+	color:#fff;
+}
+a.socialIcon:hover, .socialHoverClass {
+	color:#44BCDD;
+}
+
+.social-circle li a {
+	display:inline-block;
+	position:relative;
+	margin:0 auto 0 auto;
+	-moz-border-radius:50%;
+	-webkit-border-radius:50%;
+	border-radius:50%;
+	text-align:center;
+	width: 50px;
+	height: 50px;
+	font-size:20px;
+}
+.social-circle li i {
+	margin:0;
+	line-height:50px;
+	text-align: center;
+}
+
+.social-circle li a:hover i, .triggeredHover {
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-ms--transform: rotate(360deg);
+	transform: rotate(360deg);
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-ms-transition: all 0.2s;
+	transition: all 0.2s;
+}
+.social-circle i {
+	color: #fff;
+	-webkit-transition: all 0.8s;
+	-moz-transition: all 0.8s;
+	-o-transition: all 0.8s;
+	-ms-transition: all 0.8s;
+	transition: all 0.8s;
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */

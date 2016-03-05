@@ -2,17 +2,22 @@
 # Activar RewriteEngine
 RewriteEngine on
 
-#Ruta Samuel
-#RewriteBase /Git/inmobiliaria/app/
+# Ruta Samuel
+# RewriteBase /Git/inmobiliaria/app/
 
-#Ruta Victor
+# Ruta Victor
 RewriteBase /git/GitHub/inmobiliaria/app/
+
+# Configurando pagina principal
+DirectoryIndex landing-page/index.php
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
  
 # Reescribir la URL solicitada por el usuario
+
+# Rewrites de MVC
 RewriteRule ^(\w{2,3})/(\w+)/(\w+)/?$ index.php?lang=$1&controller=$2&action=$3
 RewriteRule ^(\w{2,3})/(\w+)/(\w+)/(\d+)/?$ index.php?lang=$1&controller=$2&action=$3&param1=$4
 RewriteRule ^(\w+)/(\w+)/?$ index.php?controller=$1&action=$2
@@ -22,11 +27,11 @@ RewriteRule ^(\w+)/(\w+)/(\w+)/?$ index.php?controller=$1&action=$2&param1=$3
 Options -Indexes
 Options +FollowSymLinks
 
-#Error 404 Redirect Samuel
-ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
+# Error 404 Redirect Samuel
+# ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
 
-#Error 404 Redirect Victor
-#ErrorDocument 404 /Repos/Github/inmobiliaria/app/index.php?controller=error&action=_404
+# Error 404 Redirect Victor
+ErrorDocument 404 /git/GitHub/inmobiliaria/app/index.php?controller=error&action=_404
 
 # To prevent file access
 #<Files "*.js">

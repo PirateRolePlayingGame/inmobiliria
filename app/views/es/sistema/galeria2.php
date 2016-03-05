@@ -56,9 +56,10 @@
 								<div class="col-md-8">
 									<?php
 										require("cuadroImagen.php");
-
 									?>
 								</div>
+
+								<!-- Cuadro Preview -->
 								<div class="col-md-4">
 									<div id="gay" style="display: none; ">
 										<h2>Preview</h2>
@@ -67,8 +68,9 @@
 										<br>
 										<a href="#">Borrar Permanentemente</a>
 									</div>
-									
 								</div>
+								<!--/-->
+
 							</div>
 						</div>
 					</div>
