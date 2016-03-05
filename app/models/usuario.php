@@ -112,6 +112,18 @@ class Usuario{
 		$req = $db->prepare('UPDATE usuario SET idEstatus = 2, fechaSalida = :fec WHERE idUsuario = :id');
 		$req->execute(array(':fec' => $fecha, ':id' => $id));
 	}
+
+	// public static function formUsuario()
+	// {
+	// 	$arr = array();
+	// 	$cor = array();
+	// 	$arr = ["Usuario", "Contraseña", "Nombre", "Correo", "Telefono"];
+	// 	$v = array();
+	// 	$v['nombre'] = "usuario";
+	// 	$v['datos'] = $arr;
+	// 	$v['drop'] = $cor;
+	// 	return $v;
+	// }
 }
 
 ?>

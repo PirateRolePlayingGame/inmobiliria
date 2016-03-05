@@ -125,6 +125,7 @@ class Corto
 		$req = $db->prepare('UPDATE municipio SET municipio = :val WHERE idMunicipio = :id');
 		$req->execute(array('val' => $val, 'id' => $id));
 	}
+
 }
 
 

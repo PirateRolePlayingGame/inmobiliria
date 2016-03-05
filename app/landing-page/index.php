@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<!-- Base Samuel! -->
-	<!-- <base href="/Git/inmobiliaria/app/landing-page/"> -->
+	<base href="/Git/inmobiliaria/app/landing-page/">
 
 	<!-- Base Victor! -->
-	<base href="/git/GitHub/inmobiliaria/app/landing-page/"> 
+	<!-- <base href="/git/GitHub/inmobiliaria/app/landing-page/">  -->
 
 	<title>LH Grupo Inmobiliario</title>
 	<meta charset="utf-8">
