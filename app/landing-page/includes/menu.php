@@ -43,7 +43,11 @@
 
 <div id="indexmenu" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand" href="#"><img alt="Brand" src="img/brand.png"></a>
+        <div class="navbar-header">
+        <!-- the '../' link makes it go to the home page cause of htaccess rewrite -->
+            <a class="navbar-brand" href="../">
+                <img alt="Brand" src="img/brand.png">
+            </a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
         </div>

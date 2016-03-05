@@ -16,6 +16,7 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
  
 # Reescribir la URL solicitada por el usuario
+RewriteRule ^home/?$ landing-page/index.php
 
 # Rewrites de MVC
 RewriteRule ^(\w{2,3})/(\w+)/(\w+)/?$ index.php?lang=$1&controller=$2&action=$3
