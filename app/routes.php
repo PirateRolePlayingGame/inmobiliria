@@ -34,7 +34,7 @@
 
 	//LLenar con controladores y acciones validas
 	$controllers = array('main' 	          => ['main', 'error'],
-						 'admin' 	          => ['auditorias', 'usuarios', 'login', 'validar', 'inmuebles'],
+						 'admin' 	          => ['auditorias', 'usuarios', 'login', 'validar', 'inmuebles', 'subirImagenInmueble'],
 						 'userTest' 	      => ['test'],
 						 'auditoriaTest' 	  => ['test'],
 						 'inmobTest'   => ['test'],

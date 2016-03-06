@@ -1,32 +1,35 @@
-<div class="col-md-4">
-	<div class="imagen-container">
-		<div class="imagen">
-			<img src="assets/img/gay.png" id="1" height="362" width="480" alt="" class="img-responsive imagen2">
-			<!-- <div class="coso" style="">
-				<i class="fa fa-times borrar-imagen"></i>
-			</div> -->
-		</div>
-	</div>
-</div>
+<?php 
+require_once('../../../connection.php');
+require('../../../models/inmueble.php');
+
+foreach(Inmueble::obtImagenes($_GET['id']) as $img){
+	
+}
+
+
+
+
+
+
+
+
+
+function putImage($img, $id){
+?>
 
 <div class="col-md-4">
 	<div class="imagen-container">
 		<div class="imagen">
-			<img src="assets/img/gunther.jpg" id="2" height="362" width="480" alt="" class="img-responsive imagen2">
-			<!-- <div class="coso" style="">
-				<i class="fa fa-times borrar-imagen"></i>
-			</div> -->
+			<img src="assets/img/<?php print $img; ?>" id="<?php print $id; ?>" height="362" width="480" alt="" class="img-responsive imagen2">
 		</div>
 	</div>
 </div>
 
-<div class="col-md-4">
-	<div class="imagen-container">
-		<div class="imagen">
-			<img src="assets/img/gay.png" id="3" height="362" width="480" alt="" class="img-responsive imagen2">
-			<!-- <div class="coso" style="">
-				<i class="fa fa-times borrar-imagen"></i>
-			</div> -->
-		</div>
-	</div>
-</div>
+<?php
+}
+
+?>
+
+
+
+

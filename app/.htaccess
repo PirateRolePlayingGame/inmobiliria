@@ -3,10 +3,10 @@
 RewriteEngine on
 
 # Ruta Samuel
-RewriteBase /Git/inmobiliaria/app/
+# RewriteBase /Git/inmobiliaria/app/
 
 # Ruta Victor
-# RewriteBase /git/GitHub/inmobiliaria/app/
+RewriteBase /git/GitHub/inmobiliaria/app/
 
 # Configurando pagina principal
 DirectoryIndex landing-page/index.php

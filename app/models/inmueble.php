@@ -79,7 +79,7 @@ class Inmueble
 		$req->execute(array('id' => $id));
 		foreach($req->fetchAll() as $img)
 		{
-			$v[] = $img['foto'];
+			$v[] = [$img['foto'], $img['Id']];
 		}
 		return $v;
 	}
