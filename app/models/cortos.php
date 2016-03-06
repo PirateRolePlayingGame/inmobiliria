@@ -126,6 +126,14 @@ class Corto
 		$req->execute(array('val' => $val, 'id' => $id));
 	}
 
+	public static function imgUnica($id)
+	{
+		$db = Db::getInstance();
+		$req = $db->prepare('SELECT rinmueblefoto.foto from rinmueblefoto WHERE idInmueble = :id limit 1');
+		$req->execute(array('id' => $id));
+		return $req->fetch();
+	}
+
 }
 
 
