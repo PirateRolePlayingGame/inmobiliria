@@ -13,6 +13,12 @@ class AdminController
 		require_once('/views/' . GC::$lang . "/sistema/panel.php");
 	}
 
+	public function inmuebles()
+	{
+		$tabla = Inmueble::obtInmueble();
+		require_once('/views/' . GC::$lang . "/sistema/panel.php");
+	}
+
 	public function login()
 	{
 		require_once('/views/' . GC::$lang . "/sistema/login.php");

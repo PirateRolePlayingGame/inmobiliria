@@ -22,7 +22,7 @@ class Inmueble
 	public function __construct($i, $est, $tipoIn, $trans, $ubc, $mun, $estad, $nom, $ba, $hab, $met, $prec, $est, $tl, $cod, $desc)
 	{
 		$this->id = $i;
-		$this->status = $st;
+		$this->status = $est;
 		$this->tipoInmueble = $tipoIn;
 		$this->transaccion = $trans;
 		$this->ubicacion = $ubc;
@@ -106,6 +106,13 @@ class Inmueble
 		$db = Db::getInstance();
 		$req = $db->prepare('UPDATE inmueble SET idStat = :est WHERE idInmueble = :id');
 		$req->execute(array(':est' => 3, 'id' => $id));
+	}
+
+	public static function actInmueble($upd, $id, $val)
+	{
+		$db = Db::getInstance();
+		$req = $db->prepare('UPDATE inmueble SET ' . $upd . ' = :val WHERE idInmueble = :id');
+		$req->execute(array('val' => $val, 'id' => $id));
 	}
 
 
