@@ -123,34 +123,7 @@ class Inmueble
 	// }
 
 
-	public static function obtInmFiltro($fil, $idf)
-	{
-		$v = [];
-		$db = Db::getInstance();
-
-		$req = $db->prepare('SELECT inmueble.idInmueble as Id, inmueble.nombre as Nombre, inmueble.nBaños as NrBaños,
-								inmueble.nHabitaciones as NrHabitaciones, inmueble.metros as Metros, inmueble.precio as Precio,
-								inmueble.nEstacionamiento as Estacionamiento, inmueble.tlfDueño as Telefono, inmueble.codigo as Codigo,
-								inmueble.descripcion as Descripcion, statinmueble.estatus as Estatus, tipoinmueble.tipoInmueble as Tipo, 
-								transaccion.transaccion as Transaccion, ubicacion.direccion as Direccion, municipio.municipio as Municipio,
-								estado.estado as Estado
-								from inmueble 
-								INNER JOIN statinmueble on inmueble.idStat = statinmueble.idStat
-								INNER JOIN tipoinmueble on inmueble.idTipoInmueble = tipoinmueble.idTipoInmueble
-								INNER JOIN transaccion on inmueble.idTransaccion = transaccion.idTransaccion
-								INNER JOIN ubicacion on inmueble.idUbicacion = ubicacion.idUbicacion
-								INNER JOIN municipio on ubicacion.idMunicipio = municipio.idMunicipio
-								INNER JOIN estado on ubicacion.idEstado = estado.idEstado
-								WHERE :fil = :idf'); 
-		$req->execute(array(':fil' => $fil, ':idf' => $idf));
-		foreach($req->fetchAll() as $inm)
-		{
-			$v[] = new Inmueble($inm['Id'], $inm['Estatus'], $inm['Tipo'], $inm['Transaccion'], $inm['Direccion'], $inm['Municipio'], $inm['Estado'],
-				$inm['Nombre'], $inm['NrBaños'], $inm['NrHabitaciones'], $inm['Metros'], $inm['Precio'], $inm['Estacionamiento'], $inm['Telefono'],
-				$inm['Codigo'], $inm['Descripcion']);
-		}
-		return $v;
-	}
+	
 
 } 
 
