@@ -1,8 +1,8 @@
 <!-- Base Samuel! -->
-<base href="/Git/inmobiliaria/app/">
+<!-- <base href="/Git/inmobiliaria/app/"> -->
 
 <!-- Base Victor! -->
-<!-- <base href="/git/GitHub/inmobiliaria/app/">  -->
+<base href="/git/GitHub/inmobiliaria/app/"> 
 
 <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">

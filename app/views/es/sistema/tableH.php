@@ -41,6 +41,9 @@ class Dibujo
 		{
 			print "<td>$key</td>";
 		}
+		if(GC::$action == 'inmuebles'){
+			print "<td>Imagenes</td>";
+		}
 		echo "</tr>";
 		echo "</thead>";
 		echo "</table>";

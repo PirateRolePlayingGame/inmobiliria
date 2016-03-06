@@ -14,14 +14,18 @@ function mapIdToValue($arr){
 include(__DIR__ . '/../connection.php');
 include(__DIR__ . '/../models/cortos.php');
 
-$nombres = ['estatus', 'tipoUsuario'];
+$nombres = ['estatus', 'tipoUsuario', 'tipoInmueble', 'transaccion'];
 
 $estatus = mapIdToValue(Corto::obtEstatus());
 $tipoUsuario = mapIdToValue(Corto::obtTipoUsuario());
+$tipoInmueble = mapIdToValue(Corto::obtTipoInmueble());
+$transaccion = mapIdToValue(Corto::obtTransaccion());
 
 $data['nombres'] = $nombres;
-$data['data'] = ['estatus'     => $estatus,
-                 'tipoUsuario' => $tipoUsuario
+$data['data'] = ['estatus'      => $estatus,
+                 'tipoUsuario'  => $tipoUsuario,
+                 'tipoInmueble' => $tipoInmueble,
+                 'transaccion'  => $transaccion
                 ];
 
 echo json_encode($data);

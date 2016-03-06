@@ -9,6 +9,7 @@
 			case 'admin':
 				require_once('/models/usuario.php');
 				require_once('/models/auditoria.php');
+				require_once('/models/inmueble.php');
 				$c = new AdminController();
 				break;
 			case 'userTest':
@@ -27,14 +28,13 @@
 				$c = new ErrorController();
 				break;
 		}
-		print 'pre funcc' . '<br>';
+
 		$c->{$a}();
-		print '<br>' . 'post funcc' . '<br>';
 	}
 
 	//LLenar con controladores y acciones validas
 	$controllers = array('main' 	          => ['main', 'error'],
-						 'admin' 	          => ['auditorias', 'usuarios', 'login', 'validar'],
+						 'admin' 	          => ['auditorias', 'usuarios', 'login', 'validar', 'inmuebles'],
 						 'userTest' 	      => ['test'],
 						 'auditoriaTest' 	  => ['test'],
 						 'inmobTest'   => ['test'],
