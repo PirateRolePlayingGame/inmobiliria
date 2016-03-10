@@ -57,7 +57,7 @@
 									<hr>
 									<img src="assets/img/gay.png" id="" height="362" width="480" alt="" class="img-responsive img-circle img-max-size image-preview">
 									<br>
-									<a href="#">Borrar Permanentemente</a>
+									<a href="">Borrar Permanentemente</a>
 								</div>
 							</div>
 							<!--/-->

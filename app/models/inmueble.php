@@ -79,12 +79,12 @@ class Inmueble
 		$req->execute(array('id' => $id));
 		foreach($req->fetchAll() as $img)
 		{
-			$v[] = [$img['foto'], $img['Id']];
+			$v[] = ['foto' => $img['foto'], 'id' => $img['Id']];
 		}
 		return $v;
 	}
 
-	public static function agrImagenes($id)
+	public static function agrImagen($id, $extension)
 	{
 		$v = [];
 		$db = Db::getInstance();
@@ -93,10 +93,13 @@ class Inmueble
 		$req = $db->prepare('INSERT into rinmueblefoto(idInmueble, foto) values(:id, :foto)');
 		$req->execute(array('id' => $id, 'foto' => $foto));
 		$last = $db->lastInsertId();
+		$file_name = 'f' . $last . '.' . $extension;
 		print "last = " . $last;
 
 		$req = $db->prepare('UPDATE rinmueblefoto SET foto = :nombre WHERE idrinmueblefoto = :id');
-		$req->execute(array('nombre' => ('f' . $last), 'id' => $last));
+		$req->execute(array('nombre' => $file_name, 'id' => $last));
+
+		return $file_name;
 	}
 
 

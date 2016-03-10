@@ -26,53 +26,24 @@ class AdminController
 
 	public function subirImagenInmueble()
 	{
-		if(isset($_FILES['uploadedfile']))
-		{
-			$ruta_inmuebles = __DIR__ . "/../assets/img/inmuebles/";
-			$uploadedfileload = "true";
-			$id = $_POST['id'];
-			$uploadedfile_size = $_FILES['uploadedfile']['size'];
-			echo $_FILES['uploadedfile']['name'];
+		$file = $_FILES['uploadedfile'];
+		$id = $_POST['id'];
+		$ruta = __DIR__ . "/../assets/img/inmuebles/";
 
-			if($_FILES['uploadedfile']['size'] > 500000){
-				$msg = $msg . "El archivo es mayor que 500KB, debes reduzcirlo antes de subirlo<br>";
-				$uploadedfileload = "false";
-			}
-
-			$valid_img_types = ["image/jpeg", "image/gif", "image/png"];
-
-			if(!in_array($_FILES['uploadedfile']['type'], $valid_img_types)){
-				$msg = $msg . " Tu archivo tiene que ser JPG, GIF o PNG. Otros archivos no son permitidos<br>";
-				$uploadedfileload = "false";
-			}
-
-			$file_name = $_FILES['uploadedfile']['name'];
-			$add = $ruta_inmuebles . $file_name;
-
-			if($uploadedfileload == "true"){
-				if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $add)){
-					echo " Ha sido subido satisfactoriamente";
-				}else{
-					echo "Error al subir el archivo";
-				}
+		try{
+			$res = GC::subirImagen($file, $id, $ruta);
+			print "Archivo subido exitosamente a: " . $res;
+			
+			$extension = explode('.', $res)[1];
+			$newName = Inmueble::agrImagen($id, $extension);
+			
+			if(rename($ruta . $res, $ruta . $newName)){
+				print " Se renombro exisotosamente. '" . explode('.', $res)[1] . "'";
 			}else{
-				echo $msg;
+				print "ERROR";
 			}
-		}
-		else
-		{
-			if(isset($_POST['id'])){
-				print $_POST['id'] . '<br>';
-			}
-
-			if(isset($_POST['submit'])){
-				print 'submit correcto' . '<br>';
-			}
-			if(isset($_POST['uploadedfile'])){
-				print 'error archivo: ' . $_FILES['uploadedfile']['name'] . '<br>';
-			}
-			print "entro en else";
-			// header("Location: home");
+		}catch(Exception $e){
+			print "ERROR: " . $e->getMessage() . '<br>';
 		}
 	}
 	
@@ -94,6 +65,6 @@ class AdminController
 		}
 	}
 
-
+	
 }	 
 ?>
