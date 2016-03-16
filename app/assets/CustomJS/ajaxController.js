@@ -14,6 +14,7 @@ $(document).ready(function(){
 			"url": "controllers/ajaxController.php",
 			"type": "POST"
 		},
+		responsive: true,
 		"columns": columns(),
 		"drawCallback": function(){
 			applyRestrictions();
