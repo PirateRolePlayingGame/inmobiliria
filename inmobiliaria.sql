@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.5.1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-03-2016 a las 22:46:07
+-- Tiempo de generación: 16-03-2016 a las 05:35:55
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -138,6 +138,15 @@ CREATE TABLE `rinmueblefoto` (
   `idInmueble` int(11) NOT NULL,
   `foto` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `rinmueblefoto`
+--
+
+INSERT INTO `rinmueblefoto` (`idRInmuebleFoto`, `idInmueble`, `foto`) VALUES
+(1, 2, 'f1.jpg'),
+(2, 2, 'f2.jpg'),
+(3, 2, 'f3.jpg');
 
 -- --------------------------------------------------------
 
@@ -388,7 +397,7 @@ ALTER TABLE `municipio`
 -- AUTO_INCREMENT de la tabla `rinmueblefoto`
 --
 ALTER TABLE `rinmueblefoto`
-  MODIFY `idRInmuebleFoto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idRInmuebleFoto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `statinmueble`
 --
