@@ -94,7 +94,7 @@ class Inmueble
 		$req->execute(array('id' => $id, 'foto' => $foto));
 		$last = $db->lastInsertId();
 		$file_name = 'f' . $last . '.' . $extension;
-		print "last = " . $last;
+		/*print "last = " . $last;*/
 
 		$req = $db->prepare('UPDATE rinmueblefoto SET foto = :nombre WHERE idrinmueblefoto = :id');
 		$req->execute(array('nombre' => $file_name, 'id' => $last));
@@ -130,23 +130,80 @@ class Inmueble
 	// 	$v['datos'] = $arr;
 	// 	$v['drop'] = $cor;
 	// 	return $v;
+		/*$this->id = $i;
+		$this->status = $est;
+		$this->tipoInmueble = $tipoIn;
+		$this->transaccion = $trans;
+		$this->ubicacion = $ubc;
+		$this->municipio = $mun;
+		$this->estado = $estad;
+		$this->nombre = $nom;
+		$this->baños = $ba;
+		$this->habitaciones = $hab;
+		$this->metros = $met;
+		$this->precio = $prec;
+		$this->estacionamiento = $est;
+		$this->tlf = $tl;
+		$this->codigo = $cod;
+		$this->descripcion = $desc;*/
 	// }
 
 
-	public static function agrInmueble()
+	public static function agrInmueble($stat, $tip, $est, $mun, $trans, $dir, $nom, $prec, $ba, $hab, $met, $estac, $tlf, $desc)
 	{
+		$db = Db::getInstance();
 		
+		
+		$req = $db->prepare('INSERT into ubicacion(idEstado, idMunicipio, direccion) values(:est, :mun, :dir)');
+		$req->execute(array(':est' => $est, ':mun' => $mun, ':dir' => $dir));
+		$ubic = $db->lastInsertId();
+		$req2 = $db->prepare('INSERT into inmueble(idStat, idTipoInmueble, idTransaccion, idUbicacion, nombre, nBaños, nHabitaciones, metros, precio,
+								nEstacionamiento, tlfDueño, codigo, descripcion)
+								values(:stat, :tip, :trans, :ubic, :nom, :ba, :hab, :met, :prec, :estac, :tlf, :cod, :descc)');
+		$cod1 = "";
+		$req2->execute(array(':stat' => $stat, ':tip' => $tip, ':trans' => $trans, 'ubic' => $ubic, ':nom' => $nom, ':ba' => $ba, ':hab' => $hab, 
+							':met' => $met, ':prec' => $prec, ':estac' => $estac, ':tlf' => $tlf, ':cod' => $cod1, ':descc' => $desc));
+
+		switch($tip)
+		{
+			case 1:
+				$inc = "C"; 
+			break;
+
+			case 2:
+				$inc = "A"; 
+			break;
+
+			case 3:
+				$inc = "TE"; 
+			break;
+
+			case 4:
+				$inc = "L"; 
+			break;
+
+			case 5:
+				$inc = "TH"; 
+			break;
+
+			case 6:
+				$inc = "O"; 
+			break;
+
+			case 7:
+				$inc = "G"; 
+			break;
+		}
+		$fecha = date('Y/m/d');
+		$ut = substr($fecha, 2, 2);
+		$last = $db->lastInsertId();
+		$cod = $inc . $ut . "-" . $last;
+		$inmueb = $db->lastInsertId();
+		$req3 = $db->prepare('UPDATE inmueble SET codigo = :cod WHERE idInmueble = :id');
+		$req3->execute(array(':cod' => $cod, 'id' => $inmueb));
 	}
 
 } 
-
-	
-
-//Generar año para el codigo:
-		// $fecha = date('Y/m/d');
-		// $ut = substr($fecha, 2, 2);
-		// echo $ut;
-
 
 
 ?>
