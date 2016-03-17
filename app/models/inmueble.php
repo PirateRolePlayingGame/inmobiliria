@@ -133,7 +133,10 @@ class Inmueble
 	// }
 
 
-	
+	public static function agrInmueble()
+	{
+		
+	}
 
 } 
 

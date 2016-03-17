@@ -9,27 +9,27 @@
 </head>
 <body>
 
-<?php
+<?php   
 	include("../../../connection.php");
 ?>
-	<div>
+        <div>
 		<a class="btn btn-success" data-toggle="modal" href="#form_us">
-        	 USUARIOS
-        </a>
+        	       USUARIOS
+                </a>
 
-        <a class="btn btn-success" data-toggle="modal" href="#form_in">
-        	 INMUEBLE
-        </a>
+                <a class="btn btn-success" data-toggle="modal" href="#form_in">
+                	 INMUEBLE
+                </a>
 
-        <a class="btn btn-success" data-toggle="modal" href="#form_es">
-        	 ESTADOS
-        </a>
+                <a class="btn btn-success" data-toggle="modal" href="#form_es">
+                	 ESTADOS
+                </a>
 
-        <a class="btn btn-success" data-toggle="modal" href="#form_mu">
-        	 MUNICIPIOS
-        </a>
-	</div>
+                <a class="btn btn-success" data-toggle="modal" href="#form_mu">
+                	 MUNICIPIOS
+                </a>
+        </div>
 
-	<?php include("form.php") ?>
+<?php include("form.php") ?>
 </body>
 </html>
