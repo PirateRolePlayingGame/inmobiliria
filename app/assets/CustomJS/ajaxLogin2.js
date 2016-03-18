@@ -8,9 +8,10 @@ $(document).ready(function(){
 		
 		$.ajax({
     		type: 'POST',
-    		url: "controllers/ajaxLogin.php",
+    		url: 'controllers/loginTest.php',
     		data: formData,
     		beforeSend: function(){
+    			console.log("hue");
     			$('#loader').show();
     		},
 		}).always(function(){
@@ -19,17 +20,9 @@ $(document).ready(function(){
 		}).done(function(data){
 			if(JSON.parse(data)){
 				$('#mensaje').text("Login Exitoso");
-				window.location.replace("http://lhgrupoinmobiliario.com/admin/inmuebles");
-				// var url = 'http://example.com/vote/' + Username;
-				// var form = $('<form action="' + url + '" method="post">' +
-				//   			 '<input type="text" name="api_url" value="' + Return_URL + '" />' +
-				//   			 '</form>');
-				// $('body').append(form);
-				// form.submit();
-
-				
+				// window.location.replace("success.php");
 			}else{
-				$('#mensaje').text("Login Fallido");
+				$('#mensaje').text("login fallido");
 			}
 
 		}).fail(function(){

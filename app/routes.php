@@ -37,7 +37,7 @@
 						 'admin' 	          => ['auditorias', 'usuarios', 'login', 'validar', 'inmuebles', 'subirImagenInmueble'],
 						 'userTest' 	      => ['test'],
 						 'auditoriaTest' 	  => ['test'],
-						 'inmobTest'   => ['test'],
+						 'inmobTest'   	      => ['test'],
 						 'error' 	          => ['_404']
 						);
 
