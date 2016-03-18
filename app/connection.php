@@ -21,4 +21,6 @@
 			return(self::$instance);
 		}
 	}
+
+	print "CONNECTION SE INCLUYO DE MANERA CORRECTA" . "<br>";
 ?>

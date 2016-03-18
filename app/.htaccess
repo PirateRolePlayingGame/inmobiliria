@@ -1,19 +1,21 @@
-<IfModule mod_rewrite.c>
+
 # Activar RewriteEngine
 RewriteEngine on
 
 # Ruta Samuel
- RewriteBase /Git/inmobiliaria/app/
+#RewriteBase /Git/inmobiliaria/app/
 
 # Ruta Victor
 # RewriteBase /git/GitHub/inmobiliaria/app/
+
+RewriteBase /
 
 # Configurando pagina principal
 DirectoryIndex landing-page/index.php
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
+# RewriteCond %{REQUEST_URI} !.*\.(ico|gif|jpg|jpeg|png|js|css)
  
 # Reescribir la URL solicitada por el usuario
 RewriteRule ^home/?$ landing-page/index.php
@@ -32,7 +34,8 @@ Options +FollowSymLinks
 # ErrorDocument 404 /Git/inmobiliaria/app/index.php?controller=error&action=_404
 
 # Error 404 Redirect Victor
-ErrorDocument 404 /git/GitHub/inmobiliaria/app/index.php?controller=error&action=_404
+# ErrorDocument 404 /git/GitHub/inmobiliaria/app/index.php?controller=error&action=_404
+ErrorDocument 404 index.php?controller=error&action=_404
 
 # To prevent file access
 #<Files "*.js">
@@ -45,5 +48,3 @@ ErrorDocument 404 /git/GitHub/inmobiliaria/app/index.php?controller=error&action
 # Order deny,allow
 # Deny from all
 #</FilesMatch>
-
-</IfModule>

@@ -2,7 +2,7 @@
 
 class MainController{
 	public function main(){
-		require_once('/views/' . GC::$lang . "/bootstrapDashboardTemplate/index.html");
+		require_once('/landing-page/index.php');
 		// var_dump(GC::$controller);
 		// var_dump(GC::$action);
 	}

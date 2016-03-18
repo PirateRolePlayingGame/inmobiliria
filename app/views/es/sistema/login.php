@@ -5,7 +5,7 @@
 	<!-- <base href="/Git/inmobiliaria/app/"> -->
 
 	<!-- Base Victor! -->
-	<base href="/git/GitHub/inmobiliaria/app/"> 
+	<!-- <base href="/git/GitHub/inmobiliaria/app/">  -->
 
 	<title>Login </title>
 </head>
