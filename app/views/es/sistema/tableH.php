@@ -33,7 +33,7 @@ class Dibujo
 	public static function tableOnlyHeader($v)
 	{
 		echo "<div class='table-responsive'>";
-		echo "<table id='data-table' class='table table-striped table-bordered dt-responsive nowrap' cellspacing='0' width='100%''>";
+		echo "<table id='data-table' class='table table-bordered' cellspacing='0' width='100%''>";
 
 		echo "<thead>";
 		echo "<tr class='text-center'>";
