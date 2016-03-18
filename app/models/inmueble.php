@@ -114,8 +114,27 @@ class Inmueble
 	public static function actInmueble($upd, $id, $val)
 	{
 		$db = Db::getInstance();
+
+		if($upd == "idUbicacion"){
+			$idUbicacion = Inmueble::obtIdUbicacion($id);
+			$req = $db->prepare('UPDATE ubicacion SET direccion = :val WHERE idUbicacion = :id');
+			$req->execute(array('val' => $val, 'id' => $idUbicacion));
+			$val = $idUbicacion;
+		}
+		
 		$req = $db->prepare('UPDATE inmueble SET ' . $upd . ' = :val WHERE idInmueble = :id');
 		$req->execute(array('val' => $val, 'id' => $id));
+	}
+
+	public static function obtIdUbicacion($id){
+		$db = Db::getInstance();
+
+		$req = $db->prepare('SELECT inmueble.idUbicacion as ubicacion
+							 FROM inmueble WHERE idInmueble = :id');
+
+		$req->execute(array('id' => $id));
+
+		return $req->fetch()['ubicacion'];
 	}
 
 
@@ -152,8 +171,7 @@ class Inmueble
 	public static function agrInmueble($stat, $tip, $est, $mun, $trans, $dir, $nom, $prec, $ba, $hab, $met, $estac, $tlf, $desc)
 	{
 		$db = Db::getInstance();
-		
-		
+				
 		$req = $db->prepare('INSERT into ubicacion(idEstado, idMunicipio, direccion) values(:est, :mun, :dir)');
 		$req->execute(array(':est' => $est, ':mun' => $mun, ':dir' => $dir));
 		$ubic = $db->lastInsertId();

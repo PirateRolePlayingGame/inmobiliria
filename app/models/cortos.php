@@ -112,6 +112,13 @@ class Corto
 		return $v;
 	}
 
+	public static function actUbicacion($id, $val)
+	{
+		$db = Db::getInstace();
+		$req = $db->prepare('UPDATE ubicacion SET estado = :val WHERE idEstado = :id');
+		$req->execute(array('val' => $val, 'id' => $id));
+	}
+
 	public static function actEstado($id, $val)
 	{
 		$db = Db::getInstace();

@@ -3,20 +3,40 @@ class AdminController
 {
 	public function auditorias()
 	{
-		$tabla = Auditoria::obtAuditorias();
-		require_once('/views/' . GC::$lang . "/sistema/panel.php");
+		if(isset($_SESSION['tipoUsuario']) && $_SESSION['tipoUsuario'] == 1)
+		{
+			$tabla = Auditoria::obtAuditorias();
+			require_once('/views/' . GC::$lang . "/sistema/panel.php");
+		}
+		else
+		{
+			header('Location: ../home');
+		}
 	}
 
 	public function usuarios()
 	{
-		$tabla = Usuario::obtenerUsuarios();
-		require_once('/views/' . GC::$lang . "/sistema/panel.php");
+		if(isset($_SESSION['tipoUsuario']) && $_SESSION['tipoUsuario'] == 1)
+		{
+			$tabla = Usuario::obtenerUsuarios();
+			require_once('/views/' . GC::$lang . "/sistema/panel.php");
+		}
+		else
+		{
+			header('Location: ../home');
+		}
 	}
 
 	public function inmuebles()
 	{
-		$tabla = Inmueble::obtInmueble();
-		require_once('/views/' . GC::$lang . "/sistema/panel.php");
+		if(isset($_SESSION['tipoUsuario'])){
+			$tabla = Inmueble::obtInmueble();
+			require_once('/views/' . GC::$lang . "/sistema/panel.php");
+		}
+		else
+		{
+			header('Location: ../home');
+		}
 	}
 
 	public function login()
