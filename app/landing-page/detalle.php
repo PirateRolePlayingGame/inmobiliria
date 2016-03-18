@@ -1,4 +1,10 @@
-
+<?php 
+    include("../connection.php");
+    include("../models/inmueble.php");
+    $v = Inmueble::obtDetalle($_GET['id']);
+    $img = array();
+    $img = Inmueble::obtImagenes($v->id);
+?>
 
     <!-- Page Content -->
     <div class="container">
@@ -7,7 +13,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <ol class="breadcrumb">
-                    <h2><li class="active">Hermoso Apartamento El Trigal</li></h2>
+                    <h2><li class="active"><?php print $v->nombre;?></li></h2>
                 </ol>
             </div>
         </div>
@@ -20,22 +26,40 @@
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    <?php
+                        $i = 0;
+                        foreach($img as $im)
+                        {
+                            if($i == 0)
+                                print "<li data-target='#carousel-example-generic' data-slide-to='0' class='active'></li>";
+                            else
+                                print "<li data-target='#carousel-example-generic' data-slide-to='".$i."' class='active'></li>";
+                            $i += 1;
+                        } 
+                    ?>
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <img class="img-responsive" src="img/ejem1.jpeg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="img/ejem2.jpeg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="img/ejem3.jpeg" alt="">
-                        </div>
+                        <?php
+                            $i = 0;
+                            foreach($img as $im)
+                            {
+                                if($i == 0)
+                                {
+                                    print "<div class='item active'>";
+                                        print "<img class='img-responsive' src='../assets/img/inmuebles/" . $im['foto'] . "' />";
+                                    print "</div>";    
+                                }
+                                else
+                                {
+                                    print "<div class='item'>";
+                                        print "<img class='img-responsive' src='../assets/img/inmuebles/" . $im['foto'] . "' />";
+                                    print "</div>";
+                                }
+                                $i += 1;
+                            } 
+                        ?>
                     </div>
 
                     <!-- Controls -->
@@ -57,15 +81,15 @@
             </div>
 
             <div class="col-md-4">
-                <h3>Hermoso Apartamento</h3>
-                <p class="text-justify">Espectacular apartamento en edificio exclusivo, solo 2 por piso, consta de 3 habitaciones con baño cada una ( pareduch de cristal ), estar íntimo, baño de visitantes, sala, comedor, estudio, cocina con tope en Sylestone ( incluye campana, estufa de superficie a gas, lavaplatos automático, horno, microondas; artefactos de primera), mesón en vidrio templado, pisos en Porcelanato, A/A Central maraca Carrier de 5 Tn., A/A tipo Split en cada habitación, amplio lavandero con capacidad para cama de servicio, amplio balcón con espectacular vista, techos en escayola e iluminación, 3 puestos de estacionamiento independientes y techados, 1 maletero, bella decoración con pared de Coralina en la sala, closets completos y totalmente funcionales. El edificio posee un gran salón de fiestas y terraza, circuito de cámaras, cerco eléctrico, bello hall de entrada, vigilancia privada las 24 horas, revestido en tablilla y obra limpia.</p>
+                <h2><?php print $v->nombre;?></h2>
+                <p class="text-justify"><?php print $v->descripcion;?></p>
                 <h3>Caracteristicas</h3>
                 <ul>
-                    <li>Habitaciones: 2</li>
-                    <li>Baños: 2</li>
-                    <li>Puestos de Estacionamiento: 2</li>
+                    <li>Habitaciones: <?php print $v->habitaciones; ?></li>
+                    <li>Baños: <?php print $v->baños; ?></li>
+                    <li>Puestos de Estacionamiento: <?php print $v->estacionamiento; ?></li>
                 </ul>
-                    <h2>Precio: <strong>10.000.000</strong></h2>
+                    <h2>Precio: <strong><?php print $v->precio; ?></strong></h2>
 
             </div>
 

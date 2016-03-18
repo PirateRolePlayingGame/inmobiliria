@@ -203,9 +203,8 @@ class Inmueble
 	}
 
 
-	public static function obtInmueble($det)
+	public static function obtDetalle($det)
 	{
-		$v = array();
 		$db = Db::getInstance();
 
 		$req = $db->prepare('SELECT inmueble.idInmueble as Id, inmueble.nombre as Nombre, inmueble.nBaños as NrBaños,
@@ -224,12 +223,10 @@ class Inmueble
 								WHERE inmueble.idInmueble = :det
 								ORDER BY Id desc'); 
 		$req->execute(array(':det' => $det));
-		foreach($req->fetch() as $inm)
-		{
-			$v[] = new Inmueble($inm['Id'], $inm['Estatus'], $inm['Tipo'], $inm['Transaccion'], $inm['Direccion'], $inm['Municipio'], $inm['Estado'],
+		$inm = $req->fetch();
+			$v = new Inmueble($inm['Id'], $inm['Estatus'], $inm['Tipo'], $inm['Transaccion'], $inm['Direccion'], $inm['Municipio'], $inm['Estado'],
 				$inm['Nombre'], $inm['NrBaños'], $inm['NrHabitaciones'], $inm['Metros'], $inm['Precio'], $inm['Estacionamiento'], $inm['Telefono'],
 				$inm['Codigo'], $inm['Descripcion']);
-		}
 		return $v;
 	}
 
