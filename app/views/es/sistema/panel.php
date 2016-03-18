@@ -2,10 +2,10 @@
 <html>
 <head>
 	<!-- Base Samuel! -->
-	<!-- <base href="/Git/inmobiliaria/app/"> -->
+	<base href="/Git/inmobiliaria/app/">
 
 	<!-- Base Victor! -->
-	<base href="/git/GitHub/inmobiliaria/app/"> 
+	<!-- <base href="/git/GitHub/inmobiliaria/app/">  -->
 	
 	<title>Admin Panel</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -20,7 +20,21 @@
 	<div class="container-fluid">
 		<div class="row">
 			<?php include("menuAdmin.php"); ?>
+			<?php require("views/es/Formulario/form.php"); ?>
+			<?php require('controllers/modalController.php'); ?>
 		</div>
+	</div>
+	<div class="align-center"> 
+		<?php 
+			if($_GET['action'] != "auditorias")
+			{ 
+				$v = Modal::obtModal($_GET['action']);
+				?>
+				<a class="btn btn-success" data-toggle="modal" href="<?php print $v->id; ?>">
+       				<?php print $v->nombre; ?>
+        		</a> <?php
+			}
+		?>
 	</div>
 	<div class="container">
 		
