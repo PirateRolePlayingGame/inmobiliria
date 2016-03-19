@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-03-2016 a las 05:35:55
+-- Tiempo de generación: 19-03-2016 a las 06:07:56
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -106,7 +106,7 @@ CREATE TABLE `inmueble` (
 --
 
 INSERT INTO `inmueble` (`idInmueble`, `idStat`, `idTipoInmueble`, `idTransaccion`, `idUbicacion`, `nombre`, `nBaños`, `nHabitaciones`, `metros`, `precio`, `nEstacionamiento`, `tlfDueño`, `codigo`, `descripcion`) VALUES
-(2, 1, 1, 1, 1, 'La casa e Victor', 1, 1, 12, 1200000, 3, 124412441, 'C1', 'Aqui vive Victol! ');
+(2, 3, 1, 1, 1, 'La casa e Victor', 12, 14, 123, 1220000, 3, 2147483647, 'C1', 'Aqui vive Victol! asd');
 
 -- --------------------------------------------------------
 
@@ -248,7 +248,7 @@ CREATE TABLE `ubicacion` (
 --
 
 INSERT INTO `ubicacion` (`idUbicacion`, `idEstado`, `idMunicipio`, `direccion`) VALUES
-(1, 1, 1, 'El Molino');
+(1, 1, 1, 'El Molino SWAG');
 
 -- --------------------------------------------------------
 
@@ -275,7 +275,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `idEstatus`, `idTipoUsuario`, `foto`, `usuario`, `contraseña`, `nombre`, `telefono`, `correo`, `fechaEntrada`, `fechaSalida`) VALUES
-(1, 1, 1, '""', 'milagros.ramos', 'administradora', 'Milagros Ramos', '04144951323', 'milagros.ramos@lhgrupoinmobiliario.com', '2016-03-05', NULL);
+(1, 1, 1, 'default.jpg', 'milagros.ramos', 'administradora', 'Milagros Ramos', '04144951323', 'milagros.ramos@lhgrupoinmobiliario.com', '2016-03-05', NULL);
 
 --
 -- Índices para tablas volcadas

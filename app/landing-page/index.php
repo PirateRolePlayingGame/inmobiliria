@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- Base Samuel! -->
-	<!-- <base href="/Git/inmobiliaria/app/landing-page/"> -->
-
-	<!-- Base Victor! -->
-	<!-- <base href="/git/GitHub/inmobiliaria/app/landing-page/">  -->
+	<base href="/landing-page/" /> 
 
 	<title>LH Grupo Inmobiliario</title>
 	<meta charset="utf-8">
@@ -27,15 +23,15 @@
 <link rel="stylesheet" href="themes/light/light.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="themes/dark/dark.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="themes/bar/bar.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="nivo-slider.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
 
 <link rel="icon" type="image/png" href="img/favicon.png" />
 <link rel="stylesheet" href="css/estilo.css">
  
 </head>
 <body>
-		
+
 		<?php include('includes/menu.php'); ?>
 	<div class="container">
 			 
