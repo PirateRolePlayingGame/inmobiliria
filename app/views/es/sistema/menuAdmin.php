@@ -16,7 +16,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="admin/auditorias">Auditorias<span class="sr-only">(current)</span></a></li>
         <li><a href="admin/usuarios">Usuarios</a></li>
+        <li><a href="admin/cerrar">Cerrar Sesion</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
+
   </div><!-- /.container-fluid -->
 </nav>

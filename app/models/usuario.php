@@ -58,11 +58,11 @@ class Usuario{
 		$req = $db->prepare('SELECT usuario.usuario as user FROM usuario WHERE usuario.usuario = :usr');
 		
 		if($req->execute(array(':usr' => $userName)) && $req->fetch() == null){
-			$req = $db->prepare('INSERT into usuario(idEstatus, idTipoUsuario, usuario, contraseña, nombre, telefono, correo, fechaEntrada)
-									values(:idStatus, :idTipoUsr, :usr, :cont, :nomb, :tlf, :corr, :fec)');
+			$req = $db->prepare('INSERT into usuario(idEstatus, idTipoUsuario, usuario, contraseña, nombre, telefono, correo, fechaEntrada, foto)
+									values(:idStatus, :idTipoUsr, :usr, :cont, :nomb, :tlf, :corr, :fec, :fot)');
 
 			$req->execute(array(':idStatus' => 1, ':idTipoUsr' => 1,':usr' => $userName, ':cont' => $contraseña,
-								':nomb' => $nombre, ':tlf' => $telefono, ':corr' => $correo, ':fec' => $fechaEntrada));
+								':nomb' => $nombre, ':tlf' => $telefono, ':corr' => $correo, ':fec' => $fechaEntrada, 'fot' => 'default.jpg'));
 			return true;
 		}
 		
@@ -110,6 +110,30 @@ class Usuario{
 		$fecha = date('Y/m/d');
 		$req = $db->prepare('UPDATE usuario SET idEstatus = 2, fechaSalida = :fec WHERE idUsuario = :id');
 		$req->execute(array(':fec' => $fecha, ':id' => $id));
+	}
+
+	public static function obtImagen($id)
+	{
+		$db = Db::getInstance();
+		
+		$req = $db->prepare('SELECT usuario.foto as foto FROM usuario where idUsuario = :id');
+		$req->execute(array('id' => $id));
+
+		return $req->fetch()['foto'];
+	}
+
+	public static function obtUsuario($id)
+	{
+		$db = Db::getInstance();
+		
+		$req = $db->prepare('SELECT usuario.foto as foto,
+							 usuario.nombre as nombre, tipousuario.tipoUsuario as tipo
+							 FROM usuario
+							 INNER JOIN tipousuario on tipousuario.idTipoUsuario = usuario.idTipoUsuario
+							 WHERE idUsuario = :id');
+		$req->execute(array('id' => $id));
+
+		return GC::arrayToObject($req->fetch());
 	}
 
 	// public static function formUsuario()
