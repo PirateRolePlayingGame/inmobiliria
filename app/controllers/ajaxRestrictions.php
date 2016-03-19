@@ -5,7 +5,7 @@ $res = array();
 
 switch($_SESSION['action']){
 	case 'usuarios':
-		$res['restricciones'] = ['id', 'fechaEntrada', 'fechaSalida', 'Imagen'];
+		$res['restricciones'] = ['id', 'fechaEntrada', 'fechaSalida', 'Imagenes'];
 		$res['imagenes'] = false;
 		break;
 	case 'auditorias':

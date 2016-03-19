@@ -81,8 +81,15 @@ class AdminController
 		}
 		else
 		{
-			header("Location: home");
+			header("Location: ../home");
 		}
+	}
+
+	public function cerrar()
+	{
+		session_unset();
+		session_destroy();
+		header("Location: ../home");
 	}
 
 	

@@ -6,7 +6,13 @@ class AjaxController{
 
 	public static function usuarios(){
 		include(__DIR__ . '/../models/usuario.php');
-		$info = AjaxController::$begin . json_encode(Usuario::obtenerUsuarios()) . AjaxController::$end;
+		$obj = Usuario::obtenerUsuarios();
+		
+		foreach($obj as $var){
+			$var->Imagenes = "<button type='button' id='image-viewer2' class='btn btn-primary' href='views/es/sistema/userPicture.php?id=$var->id'> Ver $var->id </button>";
+		}
+
+		$info = AjaxController::$begin . json_encode($obj) . AjaxController::$end;
 		return $info;
 	}
 

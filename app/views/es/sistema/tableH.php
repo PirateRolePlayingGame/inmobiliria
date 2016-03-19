@@ -41,7 +41,7 @@ class Dibujo
 		{
 			print "<td>$key</td>";
 		}
-		if(GC::$action == 'inmuebles'){
+		if(GC::$action == 'inmuebles' || GC::$action == 'usuarios'){
 			print "<td>Imagenes</td>";
 		}
 		echo "</tr>";

@@ -3,10 +3,10 @@
 RewriteEngine on
 
 # Ruta Samuel
-#RewriteBase /Git/inmobiliaria/app/
+# RewriteBase /Git/inmobiliaria/app/
 
 # Ruta Victor
-# RewriteBase /git/GitHub/inmobiliaria/app/
+RewriteBase /git/GitHub/inmobiliaria/app/
 
 RewriteBase /
 
@@ -23,6 +23,7 @@ RewriteRule ^home/?$ landing-page/index.php
 # Rewrites de MVC
 RewriteRule ^(\w{2,3})/(\w+)/(\w+)/?$ index.php?lang=$1&controller=$2&action=$3
 RewriteRule ^(\w{2,3})/(\w+)/(\w+)/(\d+)/?$ index.php?lang=$1&controller=$2&action=$3&param1=$4
+RewriteRule ^(\w+)/?$ index.php?controller=$1
 RewriteRule ^(\w+)/(\w+)/?$ index.php?controller=$1&action=$2
 RewriteRule ^(\w+)/(\w+)/(\w+)/?$ index.php?controller=$1&action=$2&param1=$3
 

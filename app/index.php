@@ -23,7 +23,7 @@
 	// }
 
 	$_SESSION['action'] = GC::$action;
-	print "<br>Pre routes require" . "<br>";
+
 	require_once('routes.php');
 
 ?>

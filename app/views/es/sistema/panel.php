@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.0.2/css/responsive.bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/fancyapps-fancyBox-18d1712/source/jquery.fancybox.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="assets/css/userPicture.css">
 </head>
 <body>
 
@@ -58,6 +59,17 @@
 				openEffect        : 'elastic',
 	            closeEffect       : 'elastic',
 		        width             : '80%',
+		        height            : '80%',
+		        transitionIn      : 'fade',
+		        transitionOut     : 'fade',
+		        type              : 'iframe',
+		        closeBtn          : true
+			});
+
+			$("#image-viewer2").fancybox({
+				openEffect        : 'elastic',
+	            closeEffect       : 'elastic',
+		        width             : '40%',
 		        height            : '80%',
 		        transitionIn      : 'fade',
 		        transitionOut     : 'fade',

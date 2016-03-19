@@ -28,16 +28,26 @@ class GC
 	// 	$file_name = $file['name'];
 	// 	$add = $ruta . $file_name;
 
-	// 	if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $add))
-	// 	{
-	// 		print " Ha sido subido satisfactoriamente";
-	// 		return $file_name;
-	// 	}
-	// 	else
-	// 	{
-	// 		throw new Exception("Error al subir el archivo");
-	// 	}
-	// }
+		if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $add))
+		{
+			print " Ha sido subido satisfactoriamente";
+			return $file_name;
+		}
+		else
+		{
+			throw new Exception("Error al subir el archivo");
+		}
+	}
+
+	public static function arrayToObject($arr)
+	{
+		$obj = new stdClass();
+		foreach($arr as $key => $value)
+		{
+			$obj->$key = $value;
+		}
+		return $obj;
+	}
 }
 
 ?>
