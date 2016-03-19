@@ -20,11 +20,10 @@
 	<div class="container-fluid">
 		<div class="row">
 			<?php include("menuAdmin.php"); ?>
-			<?php require("views/es/Formulario/form.php"); ?>
 			<?php require('controllers/modalController.php'); ?>
 		</div>
 	</div>
-	<div class="align-center"> 
+	<div class="text-center"> 
 		<?php 
 			if($_GET['action'] != "auditorias")
 			{ 
@@ -80,6 +79,6 @@
 			});
 		});
 	</script>
-
+	<?php include("views/es/Formulario/form.php"); ?>
 </body>
 </html>
