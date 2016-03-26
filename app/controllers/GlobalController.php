@@ -39,6 +39,16 @@ class GC
 			throw new Exception("Error al subir el archivo");
 		}
 	}
+
+	public static function arrayToObject($arr)
+	{
+		$obj = new stdClass();
+		foreach($arr as $key => $value)
+		{
+			$obj->$key = $value;
+		}
+		return $obj;
+	}
 }
 
 ?>
