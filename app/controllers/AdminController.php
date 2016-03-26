@@ -58,7 +58,31 @@ class AdminController
 			$newName = Inmueble::agrImagen($id, $extension);
 			
 			if(rename($ruta . $res, $ruta . $newName)){
-				print " Se renombro exisotosamente. '" . explode('.', $res)[1] . "'";
+				print " Se renombro exisotosamente. '" . explode('.', $res)[0] . "'";
+			}else{
+				print "ERROR";
+			}
+		}catch(Exception $e){
+			print "ERROR: " . $e->getMessage() . '<br>';
+		}
+	}
+
+	// Terminar esta funcion !!
+	public function cambiarImagenUsuario()
+	{
+		$file = $_FILES['uploadedfile'];
+		$id = $_POST['id'];
+		$ruta = __DIR__ . "/../assets/img/users/";
+
+		try{
+			$res = GC::subirImagen($file, $id, $ruta);
+			print "Archivo subido exitosamente a: " . $res;
+			
+			$extension = explode('.', $res)[1];
+			$newName = Inmueble::agrImagen($id, $extension);
+			
+			if(rename($ruta . $res, $ruta . $newName)){
+				print " Se renombro exisotosamente. '" . explode('.', $res)[0] . "'";
 			}else{
 				print "ERROR";
 			}

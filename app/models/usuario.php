@@ -122,6 +122,11 @@ class Usuario{
 		return $req->fetch()['foto'];
 	}
 
+	public static function actualizarImagen($id, $img)
+	{
+
+	}
+
 	public static function obtUsuario($id)
 	{
 		$db = Db::getInstance();
