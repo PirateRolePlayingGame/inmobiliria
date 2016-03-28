@@ -47,6 +47,7 @@
                                                 <input type="text" name="tlf" id="tlf" class="form-control" placeholder="Telefono" required>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="add" value="usuario">
                                     </div>
                                 </div>
                                 <div class="modal-footer"> 
@@ -58,9 +59,9 @@
 
                          </div> 
                          
-                </div> 
-        </div>
- </div>
+            </div> 
+    </div>
+</div>
 
 
 
@@ -230,7 +231,7 @@
                                                 <textarea name="desc" id="desc" class="form-control">  </textarea>
                                             </div>
                                         </div>
-
+                                        <input type="hidden" name="add" value="inmueble">
                                     </div>
                                 </div>
                                 <div class="modal-footer"> 
@@ -267,10 +268,15 @@
                                             <label for="nomb" class="col-md-3 control-label">Nombre</label>
                                             <div class="col-md-9">
                                                 <input type="text" name="est" id="est" class="form-control" placeholder="Estado" required>
+                                                <input type="hidden" name="add" value="estado">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="modal-footer"> 
+                                    <input type="submit" class="btn btn-success" value="Registrar"> 
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Salir</button> 
+                                 </div> 
                             </form>
                          </div> 
                          
@@ -298,10 +304,15 @@
                                             <label for="nomb" class="col-md-3 control-label">Nombre</label>
                                             <div class="col-md-9">
                                                 <input type="text" name="mun" id="mun" class="form-control" placeholder="Municipio" required>
+                                                <input type="hidden" name="add" value="municipio">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="modal-footer"> 
+                                    <input type="submit" class="btn btn-success" value="Registrar"> 
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Salir</button> 
+                                 </div> 
                             </form>
                          </div> 
                          

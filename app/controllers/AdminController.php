@@ -116,6 +116,27 @@ class AdminController
 		header("Location: ../home");
 	}
 
-	
+	public function addAction()
+	{
+		if(isset($_POST['add']) && $_POST['add'] == "usuario")
+		{
+
+		}
+
+		if(isset($_POST['add']) && $_POST['add'] == "inmueble")
+		{
+
+		}
+
+		if(isset($_POST['add']) && $_POST['add'] == "estado")
+		{
+
+		}
+
+		if(isset($_POST['add']) && $_POST['add'] == "municipio")
+		{
+
+		}
+	}
 }	 
 ?>
