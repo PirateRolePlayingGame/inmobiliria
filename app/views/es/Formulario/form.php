@@ -88,7 +88,7 @@
                                                 <select class="form-control" name="stat" id="stat">
                                                     <option value="-1" selected>Seleccione un elemento</option>
                                                     <?php 
-                                                        require_once("../../../models/cortos.php");
+                                                        require_once("models/cortos.php");
                                                         $v = Corto::obtStat();
                                                         foreach($v as $i)
                                                         {
@@ -105,7 +105,6 @@
                                                 <select class="form-control" name="tipo" id="tipo">
                                                     <option value="-1" selected>Seleccione un elemento</option>
                                                     <?php 
-                                                        require_once("../../../models/cortos.php");
                                                         $v = Corto::obtTipoInmueble();
                                                         foreach($v as $i)
                                                         {
@@ -122,7 +121,6 @@
                                                 <select class="form-control" name="estado" id="estado">
                                                     <option value="-1" selected>Seleccione un elemento</option>
                                                     <?php 
-                                                        require_once("../../../models/cortos.php");
                                                         $v = Corto::obtEstado(); 
                                                         foreach($v as $i)
                                                         {
@@ -139,7 +137,6 @@
                                                 <select class="form-control" name="municipio" id="municipio">
                                                     <option value="-1" selected>Seleccione un elemento</option>
                                                     <?php 
-                                                        require_once("../../../models/cortos.php");
                                                         $v = Corto::obtMunicipio(); 
                                                         foreach($v as $i)
                                                         {
@@ -156,7 +153,6 @@
                                                 <select class="form-control" name="transaccion" id="transaccion">
                                                     <option value="-1" selected>Seleccione un elemento</option>
                                                     <?php 
-                                                        require_once("../../../models/cortos.php");
                                                         $v = Corto::obtTransaccion();
                                                         foreach($v as $i)
                                                         {
@@ -236,7 +232,7 @@
                                 <div class="modal-footer"> 
                                     <input type="submit" class="btn btn-success" value="Registrar"> 
                                     <button type="button" class="btn btn-success" data-dismiss="modal">Salir</button> 
-                                 </div> 
+                                </div> 
                             </form>
 
 
@@ -271,6 +267,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="modal-footer"> 
+                                    <input type="submit" class="btn btn-success" value="Registrar"> 
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Salir</button> 
+                                </div> 
                             </form>
                          </div> 
                          
@@ -302,6 +302,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="modal-footer"> 
+                                    <input type="submit" class="btn btn-success" value="Registrar"> 
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Salir</button> 
+                                </div> 
                             </form>
                          </div> 
                          
