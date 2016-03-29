@@ -1,4 +1,5 @@
 <?php
+print 'hhuehue' . '<br>';
 	class Modal
 	{
 		public $id;

@@ -7,6 +7,7 @@ foreach(Inmueble::obtImagenes($_GET['id']) as $img){
 	putImage($img['foto'], $img['id']);
 }
 
+
 function putImage($img, $id){
 ?>
 
