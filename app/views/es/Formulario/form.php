@@ -6,7 +6,7 @@
                                <h4 class="modal-title">Formulario de registro</h4> 
                         </div>
                         <div class="modal-body"> 
-                            <form class="form-horizontal" method="post" action="">
+                            <form class="form-horizontal" method="post" action="admin/addAction">
                                 <div class="panel panel-default">
                                     <div class="panel-heading text-center">
                                         <br>
@@ -75,7 +75,7 @@
                                <h4 class="modal-title">Formulario de registro</h4> 
                         </div>
                         <div class="modal-body"> 
-                            <form class="form-horizontal" method="post" action="">
+                            <form class="form-horizontal" method="post" action="admin/addAction">
                                 <div class="panel panel-default">
                                     <div class="panel-heading text-center">
                                         <br>
@@ -253,7 +253,7 @@
                                <h4 class="modal-title">Formulario de registro</h4> 
                         </div>
                         <div class="modal-body"> 
-                            <form class="form-horizontal" method="post" action="">
+                            <form class="form-horizontal" method="post" action="admin/addAction">
                                 <div class="panel panel-default">
                                     <div class="panel-heading text-center">
                                         <br>
@@ -289,7 +289,7 @@
                                <h4 class="modal-title">Formulario de registro</h4> 
                         </div>
                         <div class="modal-body"> 
-                            <form class="form-horizontal" method="post" action="">
+                            <form class="form-horizontal" method="post" action="admin/addAction">
                                 <div class="panel panel-default">
                                     <div class="panel-heading text-center">
                                         <br>

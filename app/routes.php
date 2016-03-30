@@ -10,6 +10,7 @@
 				require_once('/models/usuario.php');
 				require_once('/models/auditoria.php');
 				require_once('/models/inmueble.php');
+				require_once('/models/cortos.php');
 				$c = new AdminController();
 				break;
 			case 'userTest':

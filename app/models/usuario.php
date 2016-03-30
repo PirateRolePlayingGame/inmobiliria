@@ -73,11 +73,14 @@ class Usuario{
 	public static function validarLogin($userName, $contraseña){
 		$db = Db::getInstance();
 
-		$req = $db->prepare('SELECT usuario.contraseña as cont, usuario.idTipoUsuario as tipo FROM usuario WHERE usuario = :usr');
+		$req = $db->prepare('SELECT usuario.contraseña as cont, usuario.idTipoUsuario as tipo, usuario.idUsuario as id
+							 FROM usuario WHERE usuario = :usr');
 		if($req->execute(array(':usr' => $userName)) && ($row = $req->fetch()) != NULL){
 			if($row['cont'] == $contraseña)
 			{
 				$_SESSION['tipoUsuario'] = $row['tipo'];
+				$_SESSION['user'] = $userName;
+				$_SESSION['id'] = $row['id'];
 				return 'Login Exitoso';
 			}
 			else
