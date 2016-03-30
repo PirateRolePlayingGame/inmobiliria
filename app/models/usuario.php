@@ -125,9 +125,16 @@ class Usuario{
 		return $req->fetch()['foto'];
 	}
 
-	public static function actualizarImagen($id, $img)
+	public static function actualizarImagen($id, $extension)
 	{
+		$db = Db::getInstance();
+		
+		$nombreFoto = 'u' . $id . '.' . $extension;
+		
+		$req = $db->prepare('UPDATE usuario SET foto = :val WHERE idUsuario = :id');
+		$req->execute(array('val' => $nombreFoto, 'id' => $id));
 
+		return $nombreFoto;
 	}
 
 	public static function obtUsuario($id)

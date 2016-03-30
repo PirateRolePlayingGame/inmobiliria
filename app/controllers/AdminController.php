@@ -79,7 +79,7 @@ class AdminController
 			print "Archivo subido exitosamente a: " . $res;
 			
 			$extension = explode('.', $res)[1];
-			$newName = Inmueble::agrImagen($id, $extension);
+			$newName = Usuario::actualizarImagen($id, $extension);
 			
 			if(rename($ruta . $res, $ruta . $newName)){
 				print " Se renombro exisotosamente. '" . explode('.', $res)[0] . "'";
