@@ -36,7 +36,7 @@
                     <h5><?php print $user->tipo; ?> en <a href="#">LH Grupo Inmobiliario</a></h5>
                     <hr style="margin:8px auto">
 
-                    <form action="admin/subirImagenUsuario" class="form-inline" method="post" enctype="multipart/form-data">
+                    <form action="admin/cambiarImagenUsuario" class="form-inline" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"/>
                         <span class="input-group">
                             <span class="btn btn-primary btn-file">
