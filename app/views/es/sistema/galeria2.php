@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<!-- Base Samuel! -->
-	<base href="/Git/inmobiliaria/app/">
+	<!-- <base href="/Git/inmobiliaria/app/"> -->
 
 	<!-- Base Victor! -->
-	<!-- <base href="/git/GitHub/inmobiliaria/app/">  -->
+	<base href="/git/GitHub/inmobiliaria/app/"> 
 
 	<meta charset="UTF-8">
 	<title>Galeria Imagenes</title>

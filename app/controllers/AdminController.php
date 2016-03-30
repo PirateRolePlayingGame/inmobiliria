@@ -121,6 +121,7 @@ class AdminController
 		if(isset($_POST['add']) && $_POST['add'] == "usuario" && (isset($_SESSION['user'])))
 		{
 			Usuario::agregarUsuario($_POST['usuario'], $_POST['pass'], $_POST['nombre'], $_POST['correo'], $_POST['tlf']);
+			return header("Location: ../admin/usuarios");
 		}
 
 		if(isset($_POST['add']) && $_POST['add'] == "inmueble" && (isset($_SESSION['user'])))
@@ -131,17 +132,19 @@ class AdminController
 				$_POST['banos'], $_POST['habit'], $_POST['m'], $_POST['est'], $_POST['tlf'], $_POST['desc']);
 			$idInm = $db->lastInsertId();
 			Auditoria::agrInmueble($_SESSION['id'], $idInm);
+			header("Location: ../admin/inmuebles");
 		}
 
 		if(isset($_POST['add']) && $_POST['add'] == "estado" && (isset($_SESSION['user'])))
 		{
 			Cortos::agrEstado($_POST['est']);
+			header("Location: ../admin/estados");
 		}
 
 		if(isset($_POST['add']) && $_POST['add'] == "municipio" && (isset($_SESSION['user'])))
 		{
 			Cortos::agrMunicipio($_POST['mun']);
-			
+			header("Location: ../admin/municipios");
 		}
 	}
 }	 
