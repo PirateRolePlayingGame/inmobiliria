@@ -218,6 +218,7 @@ class Inmueble
 		$cod = $inc . $ut . "-" . $last;
 		$req3 = $db->prepare('UPDATE inmueble SET codigo = :cod WHERE idInmueble = :id');
 		$req3->execute(array(':cod' => $cod, 'id' => $last));
+		return $last;
 	}
 
 
