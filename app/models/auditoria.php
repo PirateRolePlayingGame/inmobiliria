@@ -24,7 +24,7 @@ class Auditoria
 	{
 		$V = [];
 		$db = Db::getInstance();
-		$req = $db->query('SELECT idAuditoria as Id, usuario.idUsuario as idU usuario.nombre as nombre, inmueble.codigo as codigo, actividad, fecha 
+		$req = $db->query('SELECT idAuditoria as Id, usuario.idUsuario as idU, usuario.nombre as nombre, inmueble.codigo as codigo, actividad, fecha 
 							from auditoria 
 							INNER JOIN inmueble on auditoria.idInmueble = inmueble.idInmueble 
 							INNER JOIN usuario on auditoria.idUsuario = usuario.idUsuario ORDER BY idAuditoria desc');
