@@ -61,7 +61,7 @@ class Usuario{
 			$req = $db->prepare('INSERT into usuario(idEstatus, idTipoUsuario, usuario, contraseña, nombre, telefono, correo, fechaEntrada, foto)
 									values(:idStatus, :idTipoUsr, :usr, :cont, :nomb, :tlf, :corr, :fec, :fot)');
 
-			$req->execute(array(':idStatus' => 1, ':idTipoUsr' => 1,':usr' => $userName, ':cont' => $contraseña,
+			$req->execute(array(':idStatus' => 1, ':idTipoUsr' => 2,':usr' => $userName, ':cont' => $contraseña,
 								':nomb' => $nombre, ':tlf' => $telefono, ':corr' => $correo, ':fec' => $fechaEntrada, 'fot' => 'default.jpg'));
 			return true;
 		}

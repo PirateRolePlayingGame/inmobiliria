@@ -125,6 +125,7 @@ class AdminController
 
 		if(isset($_POST['add']) && $_POST['add'] == "inmueble" && (isset($_SESSION['user'])))
 		{
+			$db = Db::getInstance();
 			//Auditoria de select a $_POST['nuevo valor'] al editar
 			Inmueble::agrInmueble($_POST['stat'], $_POST['tipo'], $_POST['estado'], $_POST['municipio'], 
 				$_POST['transaccion'], $_POST['direccion'], $_POST['nombre'], $_POST['precio'], 
