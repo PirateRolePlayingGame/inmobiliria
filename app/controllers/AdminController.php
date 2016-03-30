@@ -125,12 +125,11 @@ class AdminController
 
 		if(isset($_POST['add']) && $_POST['add'] == "inmueble" && (isset($_SESSION['user'])))
 		{
-			$db = Db::getInstance();
 			//Auditoria de select a $_POST['nuevo valor'] al editar
-			Inmueble::agrInmueble($_POST['stat'], $_POST['tipo'], $_POST['estado'], $_POST['municipio'], 
+			$idInm = Inmueble::agrInmueble($_POST['stat'], $_POST['tipo'], $_POST['estado'], $_POST['municipio'], 
 				$_POST['transaccion'], $_POST['direccion'], $_POST['nombre'], $_POST['precio'], 
 				$_POST['banos'], $_POST['habit'], $_POST['m'], $_POST['est'], $_POST['tlf'], $_POST['desc']);
-			$idInm = $db->lastInsertId();
+			
 			Auditoria::agrInmueble($_SESSION['id'], $idInm);
 		}
 
@@ -142,7 +141,6 @@ class AdminController
 		if(isset($_POST['add']) && $_POST['add'] == "municipio" && (isset($_SESSION['user'])))
 		{
 			Cortos::agrMunicipio($_POST['mun']);
-			
 		}
 	}
 }	 
