@@ -45,7 +45,7 @@
             </div>
         </div>   
     <?php 
-            if($par%2 == 0)
+            if($par%2 == 1)
             {
                 print "</div>";
             }
