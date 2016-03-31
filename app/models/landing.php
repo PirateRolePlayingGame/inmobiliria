@@ -30,7 +30,7 @@ class Landing
 		return $v;
 	}
 
-	public static function landingfiltro($fil, $tip)
+	public static function landingFiltro($fil, $tip)
 	{
 		$v = array();
 		$db = Db::getInstance();
@@ -38,7 +38,7 @@ class Landing
 		switch($tip)
 		{
 			case 1:
-				$req = $db->prepare('SELECT idInmueble, nombre from inmueble WHERE idTipoInmueble = :fil ORDER BY idInmueble desc');
+				$req = $db->prepare('SELECT idInmueble, nombre from inmueble WHERE idTipoInmueble = :fil and idStat = 1 ORDER BY idInmueble desc');
 				$req->execute(array(':fil' => $fil));
 				foreach($req->fetchAll() as $itm)
 				{
@@ -50,7 +50,7 @@ class Landing
 			break;
 
 			case 2:
-				$req = $db->prepare('SELECT idInmueble, nombre from inmueble WHERE idTransaccion = :fil ORDER BY idInmueble desc');
+				$req = $db->prepare('SELECT idInmueble, nombre from inmueble WHERE idTransaccion = :fil and idStat = 1 ORDER BY idInmueble desc');
 				$req->execute(array(':fil' => $fil));
 				foreach($req->fetchAll() as $itm)
 				{
@@ -75,6 +75,15 @@ class Landing
 		}
 		return $v;
 		
+	}
+
+	public static function contar($tip, $fil)
+	{
+		$db = Db::getInstance();
+		$req = $db->prepare('SELECT count(*) as num from inmueble WHERE ' .$tip.' = :fil and idStat = 1');
+		$req->execute(array(':fil' => $fil));
+
+		return $req->fetch()['num'];
 	}
 }
 ?>

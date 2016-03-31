@@ -1,6 +1,7 @@
 <?php 
     include("../connection.php");
     include("../models/inmueble.php");
+    include("../models/landing.php");
     $v = Inmueble::obtDetalle($_GET['id']);
     $img = array();
     $img = Inmueble::obtImagenes($v->id);

@@ -2,7 +2,64 @@
                   include("../connection.php");
                   include("../models/landing.php"); 
                   $v = array();
-                  $v = Landing::obtLanding();
+                  if(!isset($_GET['pag']))
+                  {
+                    $v = Landing::obtLanding();
+                  }
+                  else
+                  {
+                    switch($_GET['pag'])
+                    {
+                      case "casas":
+                        $v = Landing::landingFiltro(1, 1);
+                      break;
+
+                      case "apartamentos":
+                        $v = Landing::landingFiltro(2, 1);
+                      break;
+
+                      case "terrenos":
+                        $v = Landing::landingFiltro(3, 1);
+                      break;
+
+                      case "townhouse":
+                        $v = Landing::landingFiltro(5, 1);
+                      break;
+
+                      case "local":
+                        $v = Landing::landingFiltro(4, 1);
+                      break;
+
+                      case "oficina":
+                        $v = Landing::landingFiltro(6, 1);
+                      break;
+
+                      case "galpon":
+                        $v = Landing::landingFiltro(7, 1);
+                      break;
+
+                      case "compra":
+                        $v = Landing::landingFiltro(2, 2);
+                      break;
+
+                      case "venta":
+                        $v = Landing::landingFiltro(3, 2);
+                      break;
+
+                      case "alquiler":
+                        $v = Landing::landingFiltro(4, 2);
+                      break;
+
+                      case "mercsec":
+                        $v = Landing::landingFiltro(5, 2);
+                      break;
+
+                      case "nuevos":
+                        $v = Landing::landingFiltro(1, 2);
+                      break;
+                    }
+                  }
+                  
             ?>
             <div class="col-lg-12">
                 <h2 class="page-header">Últimas Adiciones</h2>

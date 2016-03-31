@@ -79,46 +79,6 @@
 								{
 									include("detalle.php");
 								}
-									if($pag == "casas")
-								{
-									include("casas.php");
-								}
-									if($pag == "apartamentos")
-								{
-									include("apartamentos.php");
-								}
-									if($pag == "terrenos")
-								{
-									include("terrenos.php");
-								}
-									if($pag == "vendedores")
-								{
-									include("includes/vendedores.php");
-								}
-									if($pag == "nuevo")
-								{
-									include("nuevos.php");
-								}
-								if($pag == "alquiler")
-								{
-									include("alquiler.php");
-								}
-									if($pag == "secundario")
-								{
-									include("secundario.php");
-								}
-								if($pag == "townhouse")
-								{
-									include("townhouse.php");
-								} 
-								 if($pag == "contacto")
-								{
-									include("includes/contacto.php");
-								}   
-							 
-							 
-									
-
 							}
 
 						 ?>
