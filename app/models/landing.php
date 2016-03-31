@@ -18,7 +18,7 @@ class Landing
 		$v = array();
 		$db = Db::getInstance();
 
-		$req = $db->prepare('SELECT idInmueble, nombre from inmueble ORDER BY idInmueble desc');
+		$req = $db->prepare('SELECT idInmueble, nombre from inmueble WHERE idStat = 1 ORDER BY idInmueble desc');
 		$req->execute();
 		foreach($req->fetchAll() as $itm)
 		{

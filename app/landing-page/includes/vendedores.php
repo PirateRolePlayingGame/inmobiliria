@@ -11,107 +11,47 @@
     </div>
     
     
-    
-    <div class="row">
-        
+    <?php
+        require("../connection.php");
+        require("../models/landuser.php");
+        $v = array();
+        $v = landUser::landingUsers();
+        $par = 0;
+        foreach($v as $it)
+        {
+            if($par%2 == 0)
+            {
+                print "<div class='row'>";
+            }
+    ?>
         <!--asesor 1-->
-        <div class="col-xs-12 col-sm-5 col-md-5">
+        <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-sm-6 col-md-4">
-                        <img src="img/foto4.jpg" alt="" class="img-rounded img-responsive" />
+                        <img src="../assets/img/users/<?php print $it->foto; ?>" alt="" class="img-rounded img-responsive" />
                     </div>
                     <div class="col-sm-6 col-md-8">
-                        <h4>John Romero</h4>
+                        <h4><?php print $it->nombre; ?></h4>
                         
                         <p>
-                            <i class="glyphicon glyphicon-envelope"></i>wfranco171280gmail.com
+                            <i class="glyphicon glyphicon-envelope"></i><?php print $it->correo; ?>
                             <br />
-                            <i class="glyphicon glyphicon-phone"></i>0412-755.73.26
+                            <i class="glyphicon glyphicon-phone"></i><?php print $it->telefono; ?>
                             <br />
-                            <!--<i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-                        <!-- Split button -->
-                        
+                        </p>  
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!--Asesor 2-->
-        <div class="col-xs-12 col-sm-5 col-md-5">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="img/foto6.jpg" alt="" class="img-rounded img-responsive" />
-                    </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4>Christian Lopez</h4>
-                        
-                        <p>
-                            <i class="glyphicon glyphicon-envelope"></i>wfranco171280gmail.com
-                            <br />
-                            <i class="glyphicon glyphicon-phone"></i>0412-755.73.26
-                            <br />
-                            <!--<i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-                        <!-- Split button -->
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        
-        <div class="row">
-            <!--Asesor 2-->
-        <div class="col-xs-12 col-sm-5 col-md-5">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="img/foto2.jpg" alt="" class="img-rounded img-responsive" />
-                    </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4>Roland Barros</h4>
-                        
-                        <p>
-                            <i class="glyphicon glyphicon-envelope"></i>wfranco171280gmail.com
-                            <br />
-                            <i class="glyphicon glyphicon-phone"></i>0412-755.73.26
-                            <br />
-                            <!--<i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-                        <!-- Split button -->
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--Asesor 2-->
-        <div class="col-xs-12 col-sm-5 col-md-5">
-            <div class="well well-sm">
-                <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="img/foto3.jpg" alt="" class="img-rounded img-responsive" />
-                    </div>
-                    <div class="col-sm-6 col-md-8">
-                        <h4>Daniel Andrade</h4>
-                        
-                        <p>
-                            <i class="glyphicon glyphicon-envelope"></i>wfranco171280gmail.com
-                            <br />
-                            <i class="glyphicon glyphicon-phone"></i>0412-755.73.26
-                            <br />
-                            <!--<i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
-                        <!-- Split button -->
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        </div>
-        
-        
-        
-    </div>            
+        </div>   
+    <?php 
+            if($par%2 == 0)
+            {
+                print "</div>";
+            }
+            $par += 1;
+        } 
+    ?>            
 </div>            
             
             

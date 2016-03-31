@@ -50,12 +50,12 @@ class Auditoria
 		$req->execute(array(':idu' => $idu, ':idinm' => $idinm, ':fec' => $fecha));
 	}
 
-	public static function modInmueble($idu, $idinm, $i, $viejo, $nuevo) //Al modificar, se debe buscar el # relacionado con la columna que se modifico. Ese es $i.
+	public static function modInmueble($idu, $idinm, $i, $nuevo) //Al modificar, se debe buscar el # relacionado con la columna que se modifico. Ese es $i.
 	{
 		$db = Db::getInstance();
 		$fecha = date('Y/m/d');
-		$req = $db->prepare('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values(:idu, :$idinm, "Modificó el :i de :viejo a :nuevo", :fec)');
-		$req->execute(array(':idu' => $idu, ':idinm' => $idinm, ':i' => $i, ':viejo' => $viejo, ':nuevo' => $nuevo, ':fec' => $fecha));
+		$req = $db->prepare('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values(:idu, :$idinm, "Modificó el :i a :nuevo", :fec)');
+		$req->execute(array(':idu' => $idu, ':idinm' => $idinm, ':i' => $i, ':nuevo' => $nuevo, ':fec' => $fecha));
 	}
 
 	public static function inhInmueble($idu, $idinm)
