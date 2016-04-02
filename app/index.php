@@ -19,6 +19,5 @@
 	// }
 
 	$_SESSION['action'] = GC::$action;
-
 	require_once('routes.php');
 ?>

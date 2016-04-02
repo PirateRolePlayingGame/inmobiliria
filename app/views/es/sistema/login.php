@@ -50,8 +50,8 @@
 						</div>
 					</form>     
 
-					<form id="hiddenform" method="POST" action="loginExitoso.php">
-						
+					<form id="hiddenform" method="POST" action="admin/inmuebles">
+
 					</form>
 
 				</div>                     

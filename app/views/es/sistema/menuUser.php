@@ -14,9 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="admin/auditorias">Auditorias<span class="sr-only">(current)</span></a></li>
-        <li><a href="admin/usuarios">Usuarios</a></li>
-        <li><a href="admin/inmuebles">Inmuebles</a></li>
+        <li class="active"><a href="admin/inmuebles">Inmuebles<span class="sr-only">(current)</span></a></li>
         <li><a href="admin/estados">Estados</a></li>
         <li><a href="admin/municipios">Municipios</a></li>
         <li><a href="admin/cerrar">Cerrar Sesion</a></li>

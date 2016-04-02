@@ -20,7 +20,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<?php include("menuAdmin.php"); ?>
+			<?php $_SESSION['tipoUsuario'] == 1 ? include("menuAdmin.php") : include("menuUser.php"); ?>
 			<?php require('controllers/modalController.php'); ?>
 		</div>
 	</div>
@@ -28,7 +28,7 @@
 		<?php 
 			if($_GET['action'] != "auditorias")
 			{ 
-				$v = Modal::obtModal($_GET['action']);
+				$v = Modal::obtModal(GC::$action);
 				?>
 				<a class="btn btn-success" data-toggle="modal" href="<?php print $v->id; ?>">
        				<?php print $v->nombre; ?>

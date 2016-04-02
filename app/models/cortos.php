@@ -144,15 +144,15 @@ class Corto
 	public static function agrEstado($est)
 	{
 		$db = Db::getInstance();
-		$req = $db->prepare('INSERT INTO estado(estado), VALUES(:est)');
-		$req->execute(array(':est' => $est));
+		$req = $db->prepare('INSERT INTO estado(estado) VALUES(:est)');
+		$req->execute(array('est' => $est));
 	}
 
 	public static function agrMunicipio($mun)
 	{
 		$db = Db::getInstance();
-		$req = $db->prepare('INSERT INTO municipio(municipio), VALUES(:mun)');
-		$req->execute(array(':mun' => $mun));
+		$req = $db->prepare('INSERT INTO municipio(municipio) VALUES(:mun)');
+		$req->execute(array('mun' => $mun));
 	}
 
 }

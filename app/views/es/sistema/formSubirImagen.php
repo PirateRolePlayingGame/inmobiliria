@@ -16,7 +16,7 @@
 
 	<div class="col-md-4">
 		<div class="input-group">
-			<input class="btn btn-primary" type="submit" name="submit" value="Subir Imagen">
+			<input class="btn btn-primary" onclick="parent.$.fancybox.close();" type="submit" name="submit" value="Subir Imagen">
 		</div>
 	</div>
 </form></p>

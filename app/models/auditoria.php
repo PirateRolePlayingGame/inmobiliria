@@ -27,7 +27,7 @@ class Auditoria
 		$req = $db->query('SELECT idAuditoria as Id, usuario.idUsuario as idU, usuario.nombre as nombre, inmueble.codigo as codigo, actividad, fecha 
 							from auditoria 
 							INNER JOIN inmueble on auditoria.idInmueble = inmueble.idInmueble 
-							INNER JOIN usuario on auditoria.idUsuario = usuario.idUsuario ORDER BY idAuditoria desc');
+							INNER JOIN usuario on auditoria.idUsuario = usuario.idUsuario ORDER BY idAuditoria DESC');
 
 		foreach($req->fetchAll() as $a)
 		{
@@ -36,10 +36,12 @@ class Auditoria
 		return $V;
 	}
 
-	public static function agrAuditoria($idu, $idinm, $var)
+	public static function agrAuditoria($idUsuario, $idInmueble, $cambio)
 	{
 		$db = Db::getInstance();
-		$this->{$var}($idu, $idinm, $i, $viejo, $nuevo);    //cuidado. i es por ejemplo precio, nombre, cantidad de baños, etc.
+		$fecha = date('Y/m/d');
+		$req = $db->prepare('INSERT into auditoria(idUsuario, idInmueble, actividad, fecha) Values(:idu, :idinm, :actv, :fec)');
+		$req->execute(array(':idu' => $idUsuario, ':idinm' => $idInmueble, ':actv' => $cambio, ':fec' => $fecha));
 	}
 
 	public static function agrInmueble($idu, $idinm)
