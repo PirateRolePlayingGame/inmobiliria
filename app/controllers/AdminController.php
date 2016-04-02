@@ -29,8 +29,35 @@ class AdminController
 
 	public function inmuebles()
 	{
-		if(isset($_SESSION['tipoUsuario'])){
+		if(isset($_SESSION['tipoUsuario']))
+		{
 			$tabla = Inmueble::obtInmueble();
+			require_once('/views/' . GC::$lang . "/sistema/panel.php");
+		}
+		else
+		{
+			header('Location: ../home');
+		}
+	}
+
+	public function estados()
+	{
+		if(isset($_SESSION['tipoUsuario']))
+		{
+			$tabla = Corto::obtEstado();
+			require_once('/views/' . GC::$lang . "/sistema/panel.php");
+		}
+		else
+		{
+			header('Location: ../home');
+		}
+	}
+
+	public function municipios()
+	{
+		if(isset($_SESSION['tipoUsuario']))
+		{
+			$tabla = Corto::obtMunicipio();
 			require_once('/views/' . GC::$lang . "/sistema/panel.php");
 		}
 		else
@@ -65,9 +92,10 @@ class AdminController
 		}catch(Exception $e){
 			print "ERROR: " . $e->getMessage() . '<br>';
 		}
+		
+		header("Location: inmuebles");
 	}
 
-	// Terminar esta funcion !!
 	public function cambiarImagenUsuario()
 	{
 		$file = $_FILES['uploadedfile'];
@@ -89,6 +117,9 @@ class AdminController
 		}catch(Exception $e){
 			print "ERROR: " . $e->getMessage() . '<br>';
 		}
+
+		sleep(4);
+		header("Location: usuarios");
 	}
 	
 	public function validar()
@@ -100,13 +131,35 @@ class AdminController
 			echo $_SESSION['tipo'];
 			if($cad == "Login Exitoso")
 			{
-				header("Location: usuarios");
+				header("Location: inmuebles");
 			}
 		}
 		else
 		{
 			header("Location: ../home");
 		}
+	}
+
+	public function borrarImagen()
+	{
+		if(isset($_POST['id']))
+		{
+			try
+			{
+				$idImagen = $_POST['id'];
+				print "id: " . $idImagen . '<br>';
+				$nombreFoto = Inmueble::obtImagenPorIdYEliminar($idImagen);
+				$ruta = __DIR__ . "/../assets/img/inmuebles/" . $nombreFoto;
+				chown($ruta, 666);
+				unlink($ruta);
+				print "Imagen Borrada en: " . $ruta;
+			}
+			catch(Exception $e)
+			{
+				print "ERROR: " . $e->getMessage() . '<br>';
+			}
+		}
+		header("Location: inmuebles");
 	}
 
 	public function cerrar()
@@ -137,15 +190,17 @@ class AdminController
 
 		if(isset($_POST['add']) && $_POST['add'] == "estado" && (isset($_SESSION['user'])))
 		{
-			Cortos::agrEstado($_POST['est']);
+			Corto::agrEstado($_POST['est']);
 			return header("Location: ../admin/estados");
 		}
 
 		if(isset($_POST['add']) && $_POST['add'] == "municipio" && (isset($_SESSION['user'])))
 		{
-			Cortos::agrMunicipio($_POST['mun']);
+			Corto::agrMunicipio($_POST['mun']);
 			return header("Location: ../admin/municipios");
 		}
+
+		return header("Location: ../admin/usuarios");
 	}
 }	 
 

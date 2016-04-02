@@ -102,6 +102,27 @@ class Inmueble
 		return $file_name;
 	}
 
+	// esta funcion retorna el nombre de la imagen con el id especificado
+	public static function obtImagenPorIdYEliminar($id)
+	{
+		$db = Db::getInstance();
+
+		$req = $db->prepare('SELECT foto
+							 FROM rinmueblefoto
+							 WHERE idrinmueblefoto = :id');
+		$req->execute(array('id' => $id));
+		$arr = $req->fetch();
+		$nombreFoto = $arr['foto'];
+		var_dump($id);
+		var_dump($arr);
+
+		$req = $db->prepare('DELETE FROM rinmueblefoto
+							 WHERE idrinmueblefoto = :id');
+		$req->execute(array('id' => $id));
+
+		print "<br>Nombre foto: " . $nombreFoto . '<br>';
+		return $nombreFoto;
+	}
 
 	public static function elimInmueble($id)
 	{

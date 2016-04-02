@@ -22,7 +22,7 @@
 					$v = new Modal("#form_in", "Agregar Inmueble");
 				break;
 
-				case "estado":
+				case "estados":
 					$v = new Modal("#form_es", "Agregar Estado");
 				break;
 

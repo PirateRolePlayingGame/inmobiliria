@@ -45,8 +45,10 @@ class AjaxUpdater{
 	}
 
 	public static function inmuebles(){
-		include(__DIR__ . '/../models/inmueble.php');
-		include(__DIR__ . '/../models/ubicacion.php');
+		include_once(__DIR__ . '/../models/inmueble.php');
+		include_once(__DIR__ . '/../models/ubicacion.php');
+		include_once(__DIR__ . '/../models/auditoria.php');
+		include_once(__DIR__ . '/../models/usuario.php');
 		
 		$pos = strpos($_POST['id'], ' ');
 		$upd = substr($_POST['id'], 0, $pos);
@@ -80,11 +82,17 @@ class AjaxUpdater{
 				break;
 			case 'estado':
 				$upd = 'idEstado';
-				return Ubicacion::actUbicacionInmueble($id, $val, $upd, 'estado');
+				$cambio = Usuario::obtNombreUsuario($_SESSION['id']) . " cambio Estado";
+				Auditoria::agrAuditoria($_SESSION['id'], $id, $cambio);
+				$ret = Ubicacion::actUbicacionInmueble($id, $val, $upd, 'estado');
+				return $ret;
 				break;
 			case 'municipio':
 				$upd = 'idMunicipio';
-				return Ubicacion::actUbicacionInmueble($id, $val, $upd, 'municipio');
+				$ret = Ubicacion::actUbicacionInmueble($id, $val, $upd, 'municipio');
+				$cambio = Usuario::obtNombreUsuario($_SESSION['id']) . " cambio Municipio";
+				Auditoria::agrAuditoria($_SESSION['id'], $id, $cambio);
+				return $ret;
 				break;
 			case 'ubicacion':
 				$upd = 'idUbicacion';
@@ -104,6 +112,10 @@ class AjaxUpdater{
 		}
 		
 		Inmueble::actInmueble($upd, $id, $val);
+
+		$cambio = Usuario::obtNombreUsuario($_SESSION['id']) . " cambio " . $upd . " a " . $retArray[$val];
+		Auditoria::agrAuditoria($_SESSION['id'], $id, $cambio);
+
 		return $retArray[$val];
 	}
 

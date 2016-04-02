@@ -49,7 +49,16 @@ class Usuario{
 		return($arr);
 	}
 
-	
+	public static function obtNombreUsuario($id)
+	{
+		$db = Db::getInstance();
+		
+		$req = $db->prepare('SELECT nombre FROM usuario WHERE idUsuario = :id');
+		$req->execute(array('id' => $id));
+
+		return $req->fetch()['nombre'];
+	}
+
 	public static function agregarUsuario($userName, $contraseña, $nombre, $correo, $telefono){
 		$db = Db::getInstance();
 		

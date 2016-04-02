@@ -22,6 +22,18 @@ class AjaxController{
 		return $info;
 	}
 
+	public static function estados(){
+		include(__DIR__ . '/../models/cortos.php');
+		$info = AjaxController::$begin . json_encode(Corto::obtEstado()) . AjaxController::$end;
+		return $info;
+	}
+
+	public static function municipios(){
+		include(__DIR__ . '/../models/cortos.php');
+		$info = AjaxController::$begin . json_encode(Corto::obtMunicipio()) . AjaxController::$end;
+		return $info;
+	}
+
 	public static function inmuebles(){
 		include(__DIR__ . '/../models/inmueble.php');
 		$obj = inmueble::obtInmueble();
@@ -38,6 +50,7 @@ class AjaxController{
 // __DIR__ guarda la ubicacion actual del archivo
 include(__DIR__ . '/../connection.php');
 
+$info = '{"data": []}';
 switch($_SESSION['action']){
 	case 'usuarios':
 		$info = AjaxController::usuarios();
@@ -48,8 +61,12 @@ switch($_SESSION['action']){
 	case 'inmuebles':
 		$info = AjaxController::inmuebles();
 		break;
-	default:
-		$info = '{"data": []}';
+	case 'estados':
+		$info = AjaxController::estados();
+		break;
+	case 'municipios':
+		$info = AjaxController::municipios();
+		break;
 }
 
 echo $info;
