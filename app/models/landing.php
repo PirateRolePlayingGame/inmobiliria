@@ -34,7 +34,6 @@ class Landing
 	{
 		$v = array();
 		$db = Db::getInstance();
-
 		switch($tip)
 		{
 			case 1:
@@ -84,6 +83,49 @@ class Landing
 		$req->execute(array(':fil' => $fil));
 
 		return $req->fetch()['num'];
+	}
+
+	public static function vistoImg($id)
+	{
+		$db = Db::getInstance();
+		$req = $db->prepare('SELECT rinmueblefoto.foto from rinmueblefoto WHERE idInmueble = :id');
+		$req->execute(array(':id' => $id));
+		$img = $req->fetch()['foto'];
+		if($img)
+		{
+		 	return $img;  
+		}
+		else
+		{
+			return "Default.jpg";
+		}
+	}
+
+	public static function busqueda($cod)
+	{
+		$db = Db::getInstance();
+		$req = $db->prepare('SELECT idInmueble, nombre, codigo from inmueble WHERE idStat = 1 AND codigo = :cod');
+		$req->execute(array(':cod' => $cod));
+		$det = $req->fetch();
+		$req2 = $db->prepare('SELECT rinmueblefoto.foto from rinmueblefoto WHERE idInmueble = :id limit 1');
+		$req2->execute(array(':id' => $det['idInmueble']));
+		$img = $req2->fetch()['foto'];
+		if($det)
+		{
+			if($img)
+			{
+				return [new Landing($det['idInmueble'], $det['nombre'], $img)];	
+			}
+			else
+			{
+				return [new Landing($det['idInmueble'], $det['nombre'], "Default.jpg")];
+			}
+			
+		}
+		else
+		{
+			return "Error";
+		}
 	}
 }
 ?>

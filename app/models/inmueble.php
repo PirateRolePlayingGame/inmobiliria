@@ -224,6 +224,7 @@ class Inmueble
 
 	public static function obtDetalle($det)
 	{
+		$v = array();
 		$db = Db::getInstance();
 
 		$req = $db->prepare('SELECT inmueble.idInmueble as Id, inmueble.nombre as Nombre, inmueble.nBaños as NrBaños,
@@ -246,6 +247,40 @@ class Inmueble
 			$v = new Inmueble($inm['Id'], $inm['Estatus'], $inm['Tipo'], $inm['Transaccion'], $inm['Direccion'], $inm['Municipio'], $inm['Estado'],
 				$inm['Nombre'], $inm['NrBaños'], $inm['NrHabitaciones'], $inm['Metros'], $inm['Precio'], $inm['Estacionamiento'], $inm['Telefono'],
 				$inm['Codigo'], $inm['Descripcion']);
+		return $v;
+	}
+
+	public static function visto()
+	{
+		$v = array();
+		$db = Db::getInstance();
+
+		$req = $db->prepare('SELECT inmueble.idInmueble as Id, inmueble.nombre as Nombre, inmueble.nBaños as NrBaños,
+								inmueble.nHabitaciones as NrHabitaciones, inmueble.metros as Metros, inmueble.precio as Precio,
+								inmueble.nEstacionamiento as Estacionamiento, inmueble.tlfDueño as Telefono, inmueble.codigo as Codigo,
+								inmueble.descripcion as Descripcion, statinmueble.estatus as Estatus, tipoinmueble.tipoInmueble as Tipo, 
+								transaccion.transaccion as Transaccion, ubicacion.direccion as Direccion, municipio.municipio as Municipio,
+								estado.estado as Estado
+								from inmueble 
+								INNER JOIN statinmueble on inmueble.idStat = statinmueble.idStat
+								INNER JOIN tipoinmueble on inmueble.idTipoInmueble = tipoinmueble.idTipoInmueble
+								INNER JOIN transaccion on inmueble.idTransaccion = transaccion.idTransaccion
+								INNER JOIN ubicacion on inmueble.idUbicacion = ubicacion.idUbicacion
+								INNER JOIN municipio on ubicacion.idMunicipio = municipio.idMunicipio
+								INNER JOIN estado on ubicacion.idEstado = estado.idEstado
+								WHERE inmueble.idTipoInmueble = 1 OR inmueble.idTipoInmueble = 2 OR inmueble.idTipoInmueble = 5 OR 
+								inmueble.idTipoInmueble = 6 AND inmueble.idStat = 1
+								ORDER BY rand() limit 1'); 
+		$req->execute();
+		$inm = $req->fetch();
+		// $req2 = $db->prepare('SELECT foto from rinmueblefoto WHERE idInmueble = :id limit 1');
+			// $req2->execute(array(':id' => $inm['Id']));
+			// $img = $req2->fetch()['foto'];
+			// print "<h1>".$img." </h1>";
+			$v = new Inmueble($inm['Id'], $inm['Estatus'], $inm['Tipo'], $inm['Transaccion'], $inm['Direccion'], $inm['Municipio'], $inm['Estado'],
+				$inm['Nombre'], $inm['NrBaños'], $inm['NrHabitaciones'], $inm['Metros'], $inm['Precio'], $inm['Estacionamiento'], $inm['Telefono'],
+				$inm['Codigo'], $inm['Descripcion']);
+			// print "<h1> $v->status </h1>";
 		return $v;
 	}
 

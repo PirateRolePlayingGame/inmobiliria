@@ -5,6 +5,8 @@
                       <div class="panel-heading">Tipo de Inmueble</div>
                       <!-- List group -->
                       <?php
+                        include_once("../connection.php");
+                        include_once("../models/landing.php");
                         $cas = Landing::contar("idTipoInmueble", 1);
                         $apr = Landing::contar("idTipoInmueble", 2);
                         $ter = Landing::contar("idTipoInmueble", 3);

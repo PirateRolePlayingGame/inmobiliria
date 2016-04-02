@@ -63,11 +63,7 @@
 				<!-- Portfolio Section -->
 				<div class="row">
 						<?php 
-							if(!isset($_GET['pag']))
-							{
-								include('includes/reciente.php');	
-							}
-							 
+							include('includes/reciente.php');
 						?>
 						
 						
